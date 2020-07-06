@@ -1,24 +1,22 @@
-# README
+# テニスコート予約サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+テニスコートをオンラインで24時間予約受付ができるサイトになります
 
-Things you may want to cover:
+### サイトテーマ
+顧客が手軽に予約　/　管理者が容易に予約管理
 
-* Ruby version
+### テーマを選んだ理由
+現状、テニスコートの予約は、ネットで予約できるところが少なく、手軽に空き状況の確認や予約をすることができません。
+もし、ネットでの予約が可能であれば、顧客側は手軽に予約をすることを可能にし、管理者は集客率UPと受付の簡易化を可能にできるため。
 
-* System dependencies
+### ターゲットユーザ
+個人でテニスコートを運営している顧客
 
-* Configuration
+### 主な利用シーン
+テニスコートの予約 / テニスコートの予約管理
 
-* Database creation
+## 設計書
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/19Qyk3y5ETqGNL0R_VQIG1LcXmwgQlh6LB_ZrYdgpMVI/edit?usp=sharing
