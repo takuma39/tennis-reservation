@@ -1,4 +1,5 @@
 class Admins::ReservationsController < ApplicationController
+	layout 'admins'
 
 	def index
 	end

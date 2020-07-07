@@ -1,4 +1,5 @@
 class Admins::TennisCourtsController < ApplicationController
+	layout 'admins'
 
 	def index
 	end

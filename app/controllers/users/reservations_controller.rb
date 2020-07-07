@@ -1,4 +1,5 @@
 class Users::ReservationsController < ApplicationController
+	layout 'users'
 
 	def index
 	end

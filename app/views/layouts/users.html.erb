@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tennis_reservation</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <!--ヘッダーの記述-->
+  <div class="container">
+    <header class="navbar navbar-fixed-top", style="background-color: limegreen;">
+
+      <nav class="nav navbar-nav navbar-left">
+        <span style="font-family: cursive; font-size: 35px;">
+             <%= link_to 'LOGO',users_root_path %> </span>
+      </nav>
+
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <!--if文でサインインとアウト時の表示を変更-->
+          <% if admin_signed_in? %>
+
+          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "予約", _path</li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "マイページ", _path</li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+
+          <% else %>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "予約", users_reservations_path %></li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "新規登録", new_user_registration_path %></li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ログイン", new_user_session_path %></li>
+
+          <% end %>
+        </ul>
+      </nav>
+
+    </header>
+  </div>
+  <!--ヘッダーの記述-->
+
+  <div class="container">
+      <% if flash[:notice] %>
+      　　<div class="alert alert-warning" role="alert"><strong><%= notice %></strong></div>
+      <% end %>
+      <% if flash[:alert] %>
+      　　<div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
+      <% end %>
+      <%= yield %>
+    </div>
+
+  <footer class="navbar navbar-fixed-bottom", style="background-color: limegreen;">
+
+  </footer>
+
+</body>
+
+</html>

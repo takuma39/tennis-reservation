@@ -1,4 +1,5 @@
 class Users::UsersController < ApplicationController
+	layout 'users'
 
 	def show
 	end

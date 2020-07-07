@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 2020_07_06_170748) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "telephone_number", null: false
-    t.integer "class", default: 0, null: false
+    t.integer "rank", default: 0, null: false
     t.integer "penalty", default: 0, null: false
-    t.boolean "is_withdrawal", default: false, null: false
+    t.boolean "active", default: true, null: false
     t.text "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
