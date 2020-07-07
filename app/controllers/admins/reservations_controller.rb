@@ -12,4 +12,7 @@ class Admins::ReservationsController < ApplicationController
 	def update
 	end
 
+	def allupdate
+	end
+
 end
