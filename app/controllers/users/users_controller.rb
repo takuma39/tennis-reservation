@@ -5,9 +5,17 @@ class Users::UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def update
+	    @user = User.find(params[:id])
+	    if @user.update(user_params)
+	    	flash[:notice] = "更新完了"
+	     	redirect_to users_user_path(current_user.id)
+	    else
+	      render :edit
+	    end
 	end
 
  	private

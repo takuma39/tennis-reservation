@@ -26,8 +26,8 @@
           <!--if文でサインインとアウト時の表示を変更-->
           <% if user_signed_in? %>
 
-          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "予約", _path</li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "マイページ", _path</li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "予約", users_reservations_path %></li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "マイページ", users_user_path(current_user.id) %></li>
           <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
 
