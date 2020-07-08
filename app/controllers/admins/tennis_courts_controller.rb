@@ -1,5 +1,6 @@
 class Admins::TennisCourtsController < ApplicationController
 	layout 'admins'
+	before_action :authenticate_admin!
 
 	def index
 	end

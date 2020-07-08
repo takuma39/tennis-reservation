@@ -20,4 +20,13 @@ class User < ApplicationRecord
 
   has_many :resrvations
 
+
+  validates :name, presence: true
+  validates :name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
+  validates :gender, presence: true
+  validates :birthday, presence: true
+  validates :postal_code, presence: true, length: { is: 7 }, numericality: { only_integer: true }
+  validates :address, presence: true
+  validates :telephone_number, presence: true, numericality: { only_integer: true }
+
 end

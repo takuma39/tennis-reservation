@@ -1,5 +1,6 @@
 class Admins::ReservationsController < ApplicationController
 	layout 'admins'
+	before_action :authenticate_admin!
 
 	def index
 	end
