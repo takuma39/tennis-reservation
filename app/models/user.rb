@@ -10,11 +10,11 @@ class User < ApplicationRecord
 
 
   enum gender:{
-    男: 0,
-    女: 1,
+    man: 0,
+    woman: 1,
     }
 
-  enum gender:{
+  enum rank:{
     NORMAL: 0,
     SILVER: 1,
     GOLD: 2,
