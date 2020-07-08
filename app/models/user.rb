@@ -32,6 +32,7 @@ class User < ApplicationRecord
   validates :postcode, presence: true, length: { is: 7 }, numericality: { only_integer: true }
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
+  validates :address_town, presence: true
   validates :address_street, presence: true
   validates :telephone_number, presence: true, numericality: { only_integer: true }
 

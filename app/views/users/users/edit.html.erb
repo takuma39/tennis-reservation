@@ -1,19 +1,19 @@
 <div class="row"><!-- --------------------row-------------------- -->
-	<div class="col-md-3">
-		<h2><%= current_user.name %>　様</h2>
-	</div>
+  <div class="col-md-3">
+    <h2><%= current_user.name %>　様</h2>
+  </div>
 
-	<div class="col-md-2 col-md-offset-5">
-	</div>
+  <div class="col-md-2 col-md-offset-5">
+  </div>
 
-	<div class="col-md-2">
-	</div>
+  <div class="col-md-2">
+  </div>
 </div><!-- --------------------------row------------------------- -->
 
 <div class="row"><!-- --------------------row-------------------- -->
-	<div class="col-md-12">
-		<h3>User情報</h3>
-	</div>
+  <div class="col-md-12">
+    <h3>User情報</h3>
+  </div>
 
     <%= form_for @user, url: users_user_path(current_user.id) do |f| %>
 
@@ -55,8 +55,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :address_street, "町名・番地" %><br />
-    <%= f.text_field :address_street, autofocus: true, placeholder: '町名・番地' %>
+    <%= f.label :address_toen, "町名" %><br />
+    <%= f.text_field :address_town, autofocus: true, placeholder: '町名' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_street, "番地" %><br />
+    <%= f.text_field :address_street, autofocus: true, placeholder: '番地' %>
   </div>
 
   <div class="field">

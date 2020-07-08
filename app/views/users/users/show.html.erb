@@ -1,21 +1,21 @@
 <div class="row"><!-- --------------------row-------------------- -->
-	<div class="col-md-3">
-		<h2><%= current_user.name %>　様</h2>
-	</div>
+  <div class="col-md-3">
+    <h2><%= current_user.name %>　様</h2>
+  </div>
 
-	<div class="col-md-2 col-md-offset-5">
-		<%= link_to "予約一覧", users_my_reservations_path, class: "btn btn-primary" %>
-	</div>
+  <div class="col-md-2 col-md-offset-5">
+    <%= link_to "予約一覧", users_my_reservations_path, class: "btn btn-primary" %>
+  </div>
 
-	<div class="col-md-2">
-		<%= link_to "編集", edit_users_user_path(current_user.id), class: "btn btn-primary" %>
-	</div>
+  <div class="col-md-2">
+    <%= link_to "編集", edit_users_user_path(current_user.id), class: "btn btn-primary" %>
+  </div>
 </div><!-- --------------------------row------------------------- -->
 
 <div class="row"><!-- --------------------row-------------------- -->
-	<div class="col-md-12">
-		<h3>User情報</h3>
-	</div>
+  <div class="col-md-12">
+    <h3>User情報</h3>
+  </div>
 
     <table border="0">
 
@@ -55,7 +55,12 @@
       </tr>
 
       <tr>
-        <th>町名・番地</th>
+        <th>町名</th>
+        <td><%= current_user.address_town %></td>
+      </tr>
+
+      <tr>
+        <th>番地</th>
         <td><%= current_user.address_street %></td>
       </tr>
 

@@ -42,8 +42,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :address_street, "町名・番地" %><br />
-    <%= f.text_field :address_street, autofocus: true, placeholder: '町名・番地' %>
+    <%= f.label :address_town, "町名" %><br />
+    <%= f.text_field :address_town, autofocus: true, placeholder: '町名' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_street, "番地" %><br />
+    <%= f.text_field :address_street, autofocus: true, placeholder: '番地' %>
   </div>
 
   <div class="field">
