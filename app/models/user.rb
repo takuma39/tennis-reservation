@@ -4,17 +4,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-	enum gender:{
+  # 住所機能
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
+
+  enum gender:{
     男: 0,
     女: 1,
-  	}
+    }
 
-	enum gender:{
+  enum gender:{
     NORMAL: 0,
     SILVER: 1,
     GOLD: 2,
     VIP: 3,
-  	}
+    }
 
 
   has_many :resrvations
@@ -24,8 +29,19 @@ class User < ApplicationRecord
   validates :name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
   validates :gender, presence: true
   validates :birthday, presence: true
-  validates :postal_code, presence: true, length: { is: 7 }, numericality: { only_integer: true }
-  validates :address, presence: true
+  validates :postcode, presence: true, length: { is: 7 }, numericality: { only_integer: true }
+  validates :prefecture_code, presence: true
+  validates :address_city, presence: true
+  validates :address_street, presence: true
   validates :telephone_number, presence: true, numericality: { only_integer: true }
+
+
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 
 end

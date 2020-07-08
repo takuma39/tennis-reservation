@@ -53,8 +53,11 @@ ActiveRecord::Schema.define(version: 2020_07_06_170748) do
     t.string "name_kana", null: false
     t.integer "gender", null: false
     t.date "birthday", null: false
-    t.string "postal_code", null: false
-    t.string "address", null: false
+    t.string "postcode", null: false
+    t.integer "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
     t.string "telephone_number", null: false
     t.integer "rank", default: 0, null: false
     t.integer "penalty", default: 0, null: false
