@@ -17,4 +17,7 @@ class User < ApplicationRecord
     VIP: 3,
   	}
 
+
+  has_many :resrvations
+
 end

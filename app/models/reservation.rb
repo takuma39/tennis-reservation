@@ -7,4 +7,8 @@ class Reservation < ApplicationRecord
     強制キャンセル: 3,
   	}
 
+
+	belongs_to :users
+	belongs_to :tennis_courts
+
 end
