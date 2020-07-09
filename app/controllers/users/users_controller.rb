@@ -18,6 +18,19 @@ class Users::UsersController < ApplicationController
       end
   end
 
+  def delete
+    @user = User.find(params[:id])
+  end
+
+  def active
+    @user = User.find(params[:id])
+    @user.active = false
+    @user.save
+    #ログアウトさせる
+    reset_session
+    redirect_to users_root_path
+  end
+
   private
   def user_params
     params.require(:user).permit(
