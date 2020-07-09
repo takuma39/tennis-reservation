@@ -19,7 +19,7 @@
       <nav class="nav navbar-nav navbar-left">
         <span style="font-family: cursive; font-size: 35px;">
           <% if admin_signed_in? %>
-             link_to 'LOGO',admins_root_path </span>
+             <%= link_to 'LOGO',admins_root_path %></span>
           <% else %>
             LOGO
           <% end %>
@@ -29,10 +29,10 @@
         <ul class="nav navbar-nav navbar-right">
           <!--if文でサインインとアウト時の表示を変更-->
           <% if admin_signed_in? %>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "統計", _path,</li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "コート一覧", admins_customers_path</li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "予約一覧", _path</li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> link_to "会員一覧", _path</li>
+          <li style="font-family: 'Hannotate SC',sans-serif;">  "統計"</li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "コート一覧", admins_tennis_courts_path %></li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "予約一覧", admins_reservations_path %></li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "会員一覧", admins_users_path %></li>
           <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
           </li>
 

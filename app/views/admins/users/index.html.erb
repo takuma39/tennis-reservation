@@ -1,0 +1,62 @@
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <div class="col-md-4 col-md-offset-8">
+        <%= link_to "検索、後で追加", search_admins_user_path(1), class: "btn btn-primary" %>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:6%">会員ID</th>
+                <th style="width:10%">氏名</th>
+                <th style="width:10%">フリガナ</th>
+                <th style="width:6%">性別</th>
+                <th style="width:10%">生年月日</th>
+                <th style="width:10%">電話番号</th>
+                <th style="width:20%">メールアドレス</th>
+                <th style="width:7%">RANK</th>
+                <th style="width:8%">ステータス</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+
+                <td>
+                    <%= link_to admins_user_path(user.id) do %>
+                        <%= user.name %>
+                    <% end %>
+                </td>
+                <td><%= user.name_kana %></td>
+
+                <td><%= user.gender %></td>
+
+                <td><%= user.birthday %></td>
+
+                <td><%= user.telephone_number %></td>
+
+                <td><%= user.email %></td>
+
+                <td><%= user.rank %></td>
+
+                <td>
+                    <% if user.active == true %>
+                        有効
+                    <% else %>
+                        退会済
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+
+    </table>
+
+</div><!-- --------------------------row------------------------- -->

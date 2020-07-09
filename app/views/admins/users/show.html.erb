@@ -1,0 +1,105 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-3">
+        <h2><%= @user.name %>　様</h2>
+    </div>
+
+    <div class="col-md-2 col-md-offset-5">
+    </div>
+
+    <div class="col-md-2">
+        <%= link_to "編集", edit_admins_user_path(@user.id), class: "btn btn-primary" %>
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-12">
+        <h3>User情報</h3>
+    </div>
+
+    <table border="0">
+
+        <tr>
+            <th>氏名</th>
+            <td><%= @user.name %></td>
+        </tr>
+
+        <tr>
+            <th>フリガナ</th>
+            <td><%= @user.name_kana %></td>
+        </tr>
+
+        <tr>
+            <th>性別</th>
+            <td><%= @user.gender %></td>
+        </tr>
+
+        <tr>
+            <th>生年月日</th>
+            <td><%= @user.birthday %></td>
+        </tr>
+
+        <tr>
+            <th>郵便番号</th>
+            <td><%= @user.postcode %></td>
+        </tr>
+
+        <tr>
+            <th>都道府県</th>
+            <td><%= @user.prefecture_name %></td>
+        </tr>
+
+        <tr>
+            <th>市区村町</th>
+            <td><%= @user.address_city %></td>
+        </tr>
+
+        <tr>
+            <th>町名</th>
+            <td><%= @user.address_town %></td>
+        </tr>
+
+        <tr>
+            <th>番地</th>
+            <td><%= @user.address_street %></td>
+        </tr>
+
+        <tr>
+            <th>建物名</th>
+            <td><%= @user.address_building %></td>
+        </tr>
+
+        <tr>
+            <th>電話番号</th>
+            <td><%= @user.telephone_number %></td>
+        </tr>
+
+        <tr>
+            <th>ランク</th>
+            <td><%= @user.rank %></td>
+        </tr>
+
+        <tr>
+            <th>ペナルティー数</th>
+            <td><%= @user.penalty %></td>
+        </tr>
+
+        <tr>
+            <th>ステータス</th>
+            <td>
+                <% if @user.active == true %>
+                        有効
+                    <% else %>
+                        退会済
+                    <% end %>
+            </td>
+        </tr>
+
+    </table>
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <h4>備考</h4>
+    <div style="border: 2px solid #000000">
+        <%= @user.remark %>
+    </div>
+</div><!-- --------------------------row------------------------- -->

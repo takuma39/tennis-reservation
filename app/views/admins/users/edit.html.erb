@@ -1,0 +1,145 @@
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <div class="col-md-3">
+        <h2><%= @user.name %>　様</h2>
+    </div>
+
+    <div class="col-md-2 col-md-offset-5">
+    </div>
+
+    <div class="col-md-2">
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+
+<%= form_for @user, url: admins_user_path(@user.id) do |f| %>
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <div class="col-md-6">
+        <h3>User情報</h3>
+    </div>
+
+    <div class="col-md-6">
+        <div class="actions">
+            <%= f.submit "更新", class: "btn btn-primary" %>
+        </div>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <div class="col-md-6"><!-- col -->
+
+        <div class="field">
+            <%= f.label :name, "名前" %><br />
+            <%= f.text_field :name, autofocus: true, placeholder:'名前' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :name_kana, "フリガナ" %><br />
+            <%= f.text_field :name_kana, autofocus: true, placeholder:'フリガナ' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :gender, "性別" %><br />
+            男：<%= f.radio_button :gender, :man %>
+            女：<%= f.radio_button :gender, :woman %>
+        </div>
+
+        <div class="field">
+            <%= f.label :birthday, "生年月日" %><br />
+            <%= f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
+        </div>
+
+        <!-- 住所 -->
+        <div class="field">
+            <%= f.label :postcode, "郵便番号" %><br />
+            <%= f.text_field :postcode, autofocus: true, placeholder:'郵便番号を半角で入力' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :prefecture_code, "都道府県" %><br />
+            <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :address_city, "市区村町" %><br />
+            <%= f.text_field :address_city, autofocus: true, placeholder: '市区村町名を入力' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :address_toen, "町名" %><br />
+            <%= f.text_field :address_town, autofocus: true, placeholder: '町名' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :address_street, "番地" %><br />
+            <%= f.text_field :address_street, autofocus: true, placeholder: '番地' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :address_building, "建物、部屋番号" %><br />
+            <%= f.text_field :address_building, autofocus: true, placeholder: '建物、部屋番号を入力' %>
+        </div>
+        <!-- 住所 -->
+
+    </div><!-- col -->
+
+
+    <div class="col-md-6"><!-- col -->
+
+        <div class="field">
+            <%= f.label :telephone_number, "電話番号" %><br />
+            <%= f.text_field :telephone_number, autofocus: true, placeholder:'電話番号を半角で入力（-なし）' %>
+        </div>
+
+        <div class="field">
+            <%= f.label :email, "メールアドレス" %><br />
+            <%= @user.email %>
+        </div>
+
+        <div class="field">
+            <%= f.label :rank, "RANK" %><br />
+            NORMAL：<%= f.radio_button :rank, :NORMAL %>　/　
+            SILVER：<%= f.radio_button :rank, :SILVER %>　/　
+            GOLD：<%= f.radio_button :rank, :GOLD %>　/　
+            VIP：<%= f.radio_button :rank, :VIP %>
+        </div>
+
+        <div class="field">
+            <%= f.label :penalty, "ペナルティー数" %><br />
+            <%= f.number_field :penalty,in: 0..5, step: 1, :value => @user.penalty %>
+        </div>
+
+        <div class="field">
+            <%= f.label :active, "ステータス" %><br />
+          <label>
+            <%= f.radio_button :active, :true %>有効
+          </label>
+          <label>
+            <%= f.radio_button :active, :false %>退会済み
+          </label>
+        </div>
+
+    </div><!-- col -->
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-12"><!-- col -->
+
+        <div class="field">
+            <%= f.label :remark, "備考" %><br />
+            <%= f.text_field :remark, autofocus: true, placeholder: '備考' %>
+        </div>
+
+    </div><!-- col -->
+
+</div><!-- --------------------------row------------------------- -->
+
+<% end %>
