@@ -4,6 +4,7 @@ class CreateTennisCourts < ActiveRecord::Migration[5.2]
 
       t.string :cname
       t.string :ctype
+      t.string :image_id
 
       t.timestamps
     end

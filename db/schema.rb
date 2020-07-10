@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_170748) do
   create_table "tennis_courts", force: :cascade do |t|
     t.string "cname"
     t.string "ctype"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

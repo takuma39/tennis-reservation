@@ -1,0 +1,48 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-3">
+        <h2>コート詳細</h2>
+    </div>
+
+    <div class="col-md-2 col-md-offset-5">
+    </div>
+
+    <div class="col-md-2">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+
+	<div class="col-md-6"><!-- col -->
+	<%= form_for @court, url: admins_tennis_court_path(@court.id) do |f| %>
+		<h4><%= @court.cname %></h4>
+	        <div class="field">
+	            <%= f.label :cname, "コート名" %><br />
+	            <%= f.text_field :cname, autofocus: true, placeholder:'コート名' %>
+	        </div>
+
+	        <div class="field">
+	            <%= f.label :ctype, "コートタイプ" %><br />
+	            <%= f.text_field :ctype, autofocus: true, placeholder:'コート種類' %>
+	        </div>
+
+			<div class="field">
+	            <%= f.label :ctype, "イメージ" %><br />
+	            <%= f.attachment_field :image %>
+	            <%= attachment_image_tag @court, :image, :fill, 100, 100 %>
+	        </div>
+
+	        <div class="actions">
+	            <%= f.submit "更新", class: "btn btn-primary" %>
+	        </div>
+
+
+
+
+	<% end %>
+	</div><!-- col -->
+
+
+</div><!-- --------------------------row------------------------- -->
+

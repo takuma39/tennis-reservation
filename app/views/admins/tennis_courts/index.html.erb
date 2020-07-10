@@ -1,0 +1,61 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-3">
+        <h2>コート一覧</h2>
+    </div>
+
+    <div class="col-md-2 col-md-offset-5">
+    </div>
+
+    <div class="col-md-2">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+
+	<div class="col-md-6"><!-- col -->
+		<%= link_to admins_tennis_court_path(@court1.id) do %>
+		<h4><%= @court1.cname %></h4>
+		<% end %>
+
+			<div>
+			コート名：
+			<%= @court1.cname %>
+			</div>
+
+			<div>
+			コートタイプ：
+			<%= @court1.ctype %>
+			</div>
+
+			<div>
+			イメージ<br>
+			<%= attachment_image_tag @court1, :image_id, :fill, 100, 100 %>
+			</div>
+	</div><!-- col -->
+
+
+	<div class="col-md-6"><!-- col -->
+		<%= link_to admins_tennis_court_path(@court2.id) do %>
+		<h4><%= @court2.cname %></h4>
+		<% end %>
+
+			<div>
+			コート名：
+			<%= @court2.cname %>
+			</div>
+
+			<div>
+			コートタイプ：
+			<%= @court2.ctype %>
+			</div>
+
+			<div>
+			イメージ<br>
+			<%= attachment_image_tag @court2, :image_id, :fill, 100, 100 %>
+			</div>
+	</div><!-- col -->
+
+</div><!-- --------------------------row------------------------- -->
+

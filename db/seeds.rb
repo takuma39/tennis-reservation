@@ -6,3 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: ENV['MY_MAIL'], password: ENV['LOGIN'])
+
+TennisCourt.create(cname: 'Aコート', ctype: 'ハードコート')
+
+TennisCourt.create(cname: 'Bコート', ctype: 'ハードコート')
