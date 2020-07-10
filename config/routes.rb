@@ -27,11 +27,9 @@ Rails.application.routes.draw do
 
     namespace :admins do
     	root 'homes#top'
-    	resources :users, only:[:index, :show, :edit, :update]do
-    		member do
-				get :search, as: :search
-			end
-    	end
+    	resources :users, only:[:index, :show, :edit, :update]
+		get 'search' => 'users#search'
+
     	resources :tennis_courts, only:[:index, :show, :update]
     	resources :reservations, only:[:index, :show, :edit, :update]
     	patch 'admins/reservations/allupdate' => 'admins/reservations#allupdate'
