@@ -27,13 +27,18 @@ Rails.application.routes.draw do
 
     namespace :admins do
     	root 'homes#top'
-    	resources :users, only:[:index, :show, :edit, :update]
+    	resources :users, only:[:index, :show, :edit, :update]do
+    		member do
+    			resources :my_reservations, only:[:index]
+    			get 'reservation/:id' => 'my_reservations#show'
+    			patch 'reservation/:id' => 'my_reservations#update'
+    		end
+    	end
 		get 'search' => 'users#search'
 
     	resources :tennis_courts, only:[:index, :show, :update]
     	resources :reservations, only:[:index, :show, :edit, :update]
     	patch 'admins/reservations/allupdate' => 'admins/reservations#allupdate'
-    	resources :my_reservations, only:[:index, :show, :update]
 	end
 
 #---------------------------------------------------
@@ -44,6 +49,9 @@ Rails.application.routes.draw do
 			member do
 				get :delete, as: :delete
 				patch :active, as: :active
+				resources :my_reservations, only:[:index]
+				get 'reservation/:id' => 'my_reservations#show'
+    			patch ':reservation/:id' => 'my_reservations#update'
 			end
 		end
     	resources :reservations, only:[:index, :show, :confirm, :create]do
@@ -52,7 +60,6 @@ Rails.application.routes.draw do
 				get :complete, as: :complete
 			end
 		end
-    	resources :my_reservations, only:[:index, :show, :update]
 	end
 
 #---------------------------------------------------
