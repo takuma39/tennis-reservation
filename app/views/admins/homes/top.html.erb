@@ -1,0 +1,94 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+    	<% wd = ["日", "月", "火", "水", "木", "金", "土"] %>
+    	<% time = Time.now %>
+        <h2><%= time.strftime("%Y/%m/%d(#{wd[time.wday]})") %>　予約状況　</h2>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:33%">時間</th>
+                <th style="width:33%"><%= TennisCourt.find(1).cname%></th>
+                <th style="width:33%"><%= TennisCourt.find(2).cname%></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>9:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>13:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>16:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>18:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>19:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>20:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>21:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+</div><!-- --------------------------row------------------------- -->
