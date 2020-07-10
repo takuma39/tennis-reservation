@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_07_06_170748) do
   end
 
   create_table "tennis_courts", force: :cascade do |t|
-    t.string "court_name", null: false
-    t.string "type", null: false
+    t.string "cname"
+    t.string "ctype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
