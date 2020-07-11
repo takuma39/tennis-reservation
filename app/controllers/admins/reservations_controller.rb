@@ -3,12 +3,17 @@ class Admins::ReservationsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
+
+
+
 	end
 
 	def show
+		@day = params[:date]
 	end
 
 	def edit
+		@day = params[:date]
 	end
 
 	def update

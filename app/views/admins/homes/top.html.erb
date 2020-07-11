@@ -2,6 +2,7 @@
     <div class="col-md-6">
     	<% wd = ["日", "月", "火", "水", "木", "金", "土"] %>
     	<% time = Time.now %>
+        <h2>TOP</h2>
         <h2><%= time.strftime("%Y/%m/%d(#{wd[time.wday]})") %>　予約状況　</h2>
     </div>
 

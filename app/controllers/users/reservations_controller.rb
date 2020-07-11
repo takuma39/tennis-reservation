@@ -5,12 +5,16 @@ class Users::ReservationsController < ApplicationController
 	end
 
 	def show
+		@day = params[:date]
 	end
 
+
 	def confirm
+		@day = params[:date]
 	end
 
 	def complete
+		@day = params[:date]
 	end
 
 	def create
