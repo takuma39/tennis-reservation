@@ -27,56 +27,17 @@
         </thead>
 
         <tbody>
+            <% @reservations.each do |r|%>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%= r.status %></td>
+                <td>
+                    <% link_to users_my_reservations(current_user.id, r.id) do%>
+                        <%= r.date %>
+                    <% end %>
+                    </td>
+                <td><%= r.start_time %></td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <% end %>
         </tbody>
 
     </table>
