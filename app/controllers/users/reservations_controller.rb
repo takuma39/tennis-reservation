@@ -10,6 +10,7 @@ class Users::ReservationsController < ApplicationController
 
 
 	def confirm
+		@reservation = Reservation.new
 		@day = params[:date]
 		@stime = params[:start_time]
 		@court = params[:tennis_court_id]
@@ -27,6 +28,43 @@ class Users::ReservationsController < ApplicationController
 	end
 
 	def create
+		@reservation = Reservation.new(reservation_params)
+		if @reservation.save
+			flash[:notice] = "予約成功"
+			redirect_to users_root_path
+		else
+			flash[:notice] = "予約失敗"
+			redirect_to users_root_path
+		end
+	end
+
+# デバッグ
+	# def create
+	# 	@reservation = Reservation.new(reservation_params)
+	# 	logger.debug @reservation.errors.inspect
+	# 	if @reservation.save
+	# 		logger.debug @reservation.errors.inspect
+	# 		flash[:notice] = "予約成功"
+	# 		redirect_to users_root_path
+	# 	else
+	# 		flash[:notice] = "予約失敗"
+	# 		redirect_to users_root_path
+	# 	end
+	# end
+
+
+	private
+
+	def reservation_params
+		params.require(:reservation).permit(
+			:user_id,
+			:tennis_court_id,
+			:day,
+			:start_time,
+			:total_price,
+			:number,
+			:status,
+			)
 	end
 
 end

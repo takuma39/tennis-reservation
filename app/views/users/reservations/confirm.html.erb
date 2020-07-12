@@ -7,7 +7,6 @@
     </div>
 </div><!-- --------------------------row------------------------- -->
 
-
 <div class="row"><!-- --------------------row-------------------- -->
 
     <table class="table table-inverse", style="margin-top:15px">
@@ -25,11 +24,11 @@
                 <td><%= @day %></td>
                 <td><%= @stime %></td>
                 <td>
-                	<% if @court == "1" %>
-                		Aコート
-                	<% else %>
-                		Bコート
-                	<%end%>
+                    <% if @court == "1" %>
+                        Aコート
+                    <% else %>
+                        Bコート
+                    <%end%>
                 </td>
             </tr>
 
@@ -60,5 +59,11 @@
 
 
 </div><!-- --------------------------row------------------------- -->
-
-
+<%= form_with(model: @reservation, url:users_reservations_path, method: :post) do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :tennis_court_id, :value => @court %>
+    <%= f.hidden_field :day, :value => @day %>
+    <%= f.hidden_field :start_time, :value => @stime %>
+    <%= f.hidden_field :total_price, :value => @tprice %>
+    <%= f.submit "予約する", class: 'btn btn-success btn-lg' %>
+<% end %>

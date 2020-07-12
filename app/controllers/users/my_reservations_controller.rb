@@ -8,7 +8,14 @@ class Users::MyReservationsController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = current_user
+		@reservation = Reservation.find(params[:id])
+		@bprice = 2000
+		if @reservation.start_time == "18:00" || @reservation.start_time == "19:00" || @reservation.start_time == "20:00" || @reservation.start_time == "21:00"
+			@nprice = 800
+		else
+			@nprice = 0
+		end
 	end
 
 	def update

@@ -29,9 +29,9 @@ Rails.application.routes.draw do
         root 'homes#top'
         resources :users, only:[:index, :show, :edit, :update]do
             member do
-                resources :my_reservations, only:[:index]
-                get 'reservation/:id' => 'my_reservations#show'
-                patch 'reservation/:id' => 'my_reservations#update'
+                resources :my_reservations, only:[:index, :show, :update]
+                # get 'reservation/:id' => 'my_reservations#show'
+                # patch 'reservation/:id' => 'my_reservations#update'
             end
         end
         get 'search' => 'users#search'
@@ -49,11 +49,12 @@ Rails.application.routes.draw do
             member do
                 get :delete, as: :delete
                 patch :active, as: :active
-                resources :my_reservations, only:[:index]
-                get 'reservation/:id' => 'my_reservations#show'
-                patch ':reservation/:id' => 'my_reservations#update'
+                resources :my_reservations, only:[:index, :show, :update]
+                # get 'reservation/:id' => 'my_reservations#show'
+                # patch ':reservation/:id' => 'my_reservations#update'
             end
         end
+        # get 'user/:id/reservation/:id' => 'my_reservations#show'
         resources :reservations, param: :date, only:[:index, :show, :create]do
             member do
                 get :confirm, as: :confirm
