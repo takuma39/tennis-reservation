@@ -1,0 +1,64 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+        <h2>予約内容確認　</h2>
+    </div>
+
+    <div class="col-md-6">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:30%">日付</th>
+                <th style="width:30%">時間</th>
+                <th style="width:30%">コート</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><%= @day %></td>
+                <td><%= @stime %></td>
+                <td>
+                	<% if @court == "1" %>
+                		Aコート
+                	<% else %>
+                		Bコート
+                	<%end%>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+        <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:30%">基本料金</th>
+                <th style="width:30%">ナイター料金</th>
+                <th style="width:30%">合計金額</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><%= @bprice %>円</td>
+                <td><%= @nprice %>円</td>
+                <td><%= @tprice %>円</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+</div><!-- --------------------------row------------------------- -->
+
+
