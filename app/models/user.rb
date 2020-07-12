@@ -22,7 +22,7 @@ class User < ApplicationRecord
     }
 
 
-  has_many :resrvations
+  has_many :reservations
 
 
   validates :name, presence: true

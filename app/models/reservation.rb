@@ -8,7 +8,7 @@ class Reservation < ApplicationRecord
   	}
 
 
-	belongs_to :users
-	belongs_to :tennis_courts
+	belongs_to :user
+	belongs_to :tennis_court
 
 end
