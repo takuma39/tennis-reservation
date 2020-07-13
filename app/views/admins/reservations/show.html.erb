@@ -29,12 +29,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -43,12 +46,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -57,12 +63,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -71,12 +80,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -85,12 +97,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -99,12 +114,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -113,12 +131,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -127,12 +148,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -141,12 +165,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -155,12 +182,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -169,12 +199,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -183,12 +216,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
 
@@ -197,12 +233,15 @@
                 <% unless Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:1) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:1).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
+                <!--  -->
                 <% unless Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2) %>
                     <td>○</td>
                 <% else %>
-                    <td>×</td>
+                    <% uid = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2).user_id %>
+                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
                 <% end %>
             </tr>
         </tbody>

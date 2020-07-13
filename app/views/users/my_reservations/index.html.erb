@@ -23,6 +23,8 @@
                 <th style="width:20%">入金</th>
                 <th style="width:20%">日付</th>
                 <th style="width:20%">時間</th>
+                <th style="width:20%">コート</th>
+                <th style="width:20%">詳細</th>
             </tr>
         </thead>
 
@@ -30,12 +32,15 @@
             <% @reservations.each do |r|%>
             <tr>
                 <td><%= r.status %></td>
-                <td>
-                    <% link_to users_my_reservations(current_user.id, r.id) do%>
-                        <%= r.date %>
-                    <% end %>
-                    </td>
+                <td><%= r.day %></td>
                 <td><%= r.start_time %></td>
+                <td><% if r.tennis_court.id == 1 %>
+                    Aコート
+                    <% else %>
+                    Bコート
+                    <% end %>
+                </td>
+                <td><%= link_to "詳細", users_my_reservation_path(current_user.id, r.id) %></td>
             </tr>
             <% end %>
         </tbody>
