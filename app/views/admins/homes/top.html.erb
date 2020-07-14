@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <% wd = ["日", "月", "火", "水", "木", "金", "土"] %>
         <% time = Time.now %>
-        <% day = Date.current %>
+        <% @day = Date.current %>
         <h2>TOP</h2>
         <h2><%= time.strftime("%Y/%m/%d(#{wd[time.wday]})") %>　予約状況　</h2>
 
@@ -26,222 +26,326 @@
         <tbody>
             <tr>
                 <td>9:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "9:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "9:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "9:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "9:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>10:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "10:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "10:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "10:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "10:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>11:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "11:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "11:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "11:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "11:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>12:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "12:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "12:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "12:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "12:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>13:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "13:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "13:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "13:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "13:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>14:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "14:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "14:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "14:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "14:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>15:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "15:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "15:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "15:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "15:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>16:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "16:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "16:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "16:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "16:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>17:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "17:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "17:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "17:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "17:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>18:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "18:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "18:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "18:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "18:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>19:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "19:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "19:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "19:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "19:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>20:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "20:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "20:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "20:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "20:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
 
             <tr>
                 <td>21:00</td>
-                <% unless Reservation.find_by(day: day, start_time: "21:00", tennis_court_id:1) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "21:00", tennis_court_id:1).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:1) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:1).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
                 <!--  -->
-                <% unless Reservation.find_by(day: day, start_time: "21:00", tennis_court_id:2) %>
-                    <td>○</td>
-                <% else %>
-                    <% uid = Reservation.find_by(day: day, start_time: "21:00", tennis_court_id:2).user_id %>
-                    <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                <% if Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2) %>
+                        <td>○</td>
+                    <% else %>
+                        <% uid = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2).user_id %>
+                        <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-</td>
                 <% end %>
             </tr>
         </tbody>
