@@ -5,8 +5,9 @@
     </div>
 
     <div class="col-md-6">
-
+<% if @check %>
         <h2><%= link_to "編集", edit_admins_reservation_path(@day), class: "btn btn-primary" %></h2>
+<% end %>
     </div>
 </div><!-- --------------------------row------------------------- -->
 
@@ -354,7 +355,7 @@
 
 
 </div><!-- --------------------------row------------------------- -->
-<% if Onoff.where(oday: @day, tennis_court_id: 1, ostart_time: "9:00") %>
+<% unless @check %>
 
     <%= form_for @onoff, url: admins_reservations_path do |f| %>
         <%= f.hidden_field :oday, :value => @day %>

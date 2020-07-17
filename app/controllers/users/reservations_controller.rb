@@ -28,13 +28,19 @@ class Users::ReservationsController < ApplicationController
 	end
 
 	def create
+		# 重複予約対策
+		# if Reservation.find(reservation_params)
+		# 	flash[:notice] = "予約が空いてません"
+		# 	redirect_to request.referer
+		# end
+
 		@reservation = Reservation.new(reservation_params)
 		if @reservation.save
 			flash[:notice] = "予約成功"
-			redirect_to users_root_path
+			redirect_to users_my_reservations_path(current_user.id)
 		else
 			flash[:notice] = "予約失敗"
-			redirect_to users_root_path
+			redirect_to request.referer
 		end
 	end
 

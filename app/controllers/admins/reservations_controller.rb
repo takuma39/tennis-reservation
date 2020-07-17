@@ -11,15 +11,62 @@ class Admins::ReservationsController < ApplicationController
 	def show
 		@day = params[:date]
 		@onoff = Onoff.new
+		@check =Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:1)
 	end
 
 	def edit
 		@day = params[:date]
-		@onoff = Onoff.where(oday: @day)
+
+		@onoff1 = Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:1)
+		@onoff2 = Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:1)
+		@onoff3 = Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:1)
+		@onoff4 = Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:1)
+		@onoff5 = Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:1)
+		@onoff6 = Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:1)
+		@onoff7 = Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:1)
+		@onoff8 = Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:1)
+		@onoff9 = Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:1)
+		@onoff10 = Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:1)
+		@onoff11 = Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:1)
+		@onoff12 = Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:1)
+		@onoff13 = Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:1)
+
+		@onoff14 = Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:2)
+		@onoff15 = Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:2)
+		@onoff16 = Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:2)
+		@onoff17 = Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:2)
+		@onoff18 = Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:2)
+		@onoff19 = Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:2)
+		@onoff20 = Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:2)
+		@onoff21 = Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:2)
+		@onoff22 = Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:2)
+		@onoff23 = Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:2)
+		@onoff24 = Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:2)
+		@onoff25 = Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:2)
+		@onoff26 = Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:2)
+
+		unless @onoff1
+			flash[:notice] = "一括開放してください"
+			redirect_to admins_root_path
+		end
 
 	end
 
 	def update
+		@onoff = Onoff.find(params[:id])
+		if @onoff.availability == true
+			@onoff.availability = false
+		else
+			@onoff.availability = true
+		end
+
+	    if @onoff.save
+	    	flash[:notice] = "更新成功"
+			redirect_to request.referer
+	    else
+	    	flash[:notice] = "更新失敗"
+	     	redirect_to request.referer
+	    end
 	end
 
 	def create
@@ -180,10 +227,10 @@ class Admins::ReservationsController < ApplicationController
 		@onoff26.availability = true
 		if @onoff26.save
 			flash[:notice] = "予約開放成功"
-			redirect_to admins_root_path
+			redirect_to request.referer
 		else
 			flash[:notice] = "予約開放失敗"
-			redirect_to admins_root_path
+			redirect_to request.referer
 		end
 
 	end
@@ -192,6 +239,7 @@ class Admins::ReservationsController < ApplicationController
 
 	def onoff_params
 		params.require(:onoff).permit(
+			:onoff_id,
 			:tennis_court_id,
 			:oday,
 			:ostart_time,

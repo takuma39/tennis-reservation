@@ -37,7 +37,8 @@ Rails.application.routes.draw do
         get 'search' => 'users#search'
 
         resources :tennis_courts, only:[:index, :show, :update]
-        resources :reservations, param: :date, only:[:index, :show, :edit, :update, :create]
+        resources :reservations, param: :date, only:[:index, :show, :edit, :create]
+        patch 'reservation/:id/' => 'reservations#update'
     end
 
 #---------------------------------------------------
