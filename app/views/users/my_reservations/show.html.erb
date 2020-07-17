@@ -65,7 +65,9 @@
         </tbody>
 
     </table>
-
+<% if @reservation.status == "入金待ち" %>
+    <%= link_to "キャンセル", users_my_reservation_path(current_user.id, @reservation.id),class: 'btn btn-danger btn-lg', method: :patch %>
+<% end %>
 
 </div><!-- --------------------------row------------------------- -->
 

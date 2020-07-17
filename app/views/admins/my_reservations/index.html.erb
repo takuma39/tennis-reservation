@@ -23,7 +23,8 @@
                 <th style="width:20%">入金</th>
                 <th style="width:20%">日付</th>
                 <th style="width:20%">時間</th>
-                <th style="width:20%">コート</th>
+                <th style="width:10%">コート</th>
+                <th style="width:10%">人数</th>
                 <th style="width:20%">詳細</th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                     Bコート
                     <% end %>
                 </td>
+                <td><%= r.number %></td>
                 <td><%= link_to "詳細", admins_my_reservation_path(@user.id, r.id) %></td>
             </tr>
             <% end %>

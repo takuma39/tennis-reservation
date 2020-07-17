@@ -19,6 +19,29 @@ class Users::MyReservationsController < ApplicationController
 	end
 
 	def update
+		@reservation = Reservation.find(params[:id])
+		@reservation.status = 2
+		if @reservation.save
+		   flash[:notice] = "キャンセル完了"
+		   redirect_to users_my_reservations_path(current_user.id)
+		else
+			flash[:notice] = "キャンセル失敗"
+			redirect_to request.referer
+		end
+	end
+
+	private
+
+	def reservation_params
+		params.require(:reservation).permit(
+			:user_id,
+			:tennis_court_id,
+			:day,
+			:start_time,
+			:total_price,
+			:number,
+			:status,
+			)
 	end
 
 end

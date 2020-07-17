@@ -19,6 +19,35 @@ class Admins::MyReservationsController < ApplicationController
 	end
 
 	def update
+		@reservation = Reservation.find(params[:id])
+		if params[:status]
+		@reservation.status = params[:status]
+		end
+		if params[:number]
+		@reservation.number = params[:number]
+		end
+		if @reservation.save
+		   flash[:notice] = "更新"
+		   redirect_to request.referer
+		else
+			flash[:notice] = "更新失敗"
+			redirect_to request.referer
+		end
+	end
+
+
+	private
+
+	def reservation_params
+		params.require(:reservation).permit(
+			:user_id,
+			:tennis_court_id,
+			:day,
+			:start_time,
+			:total_price,
+			:number,
+			:status,
+			)
 	end
 
 end

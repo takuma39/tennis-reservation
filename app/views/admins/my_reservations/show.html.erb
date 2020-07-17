@@ -25,6 +25,7 @@
                 <th style="width:20%">日付</th>
                 <th style="width:20%">時間</th>
                 <th style="width:20%">コート</th>
+                <th style="width:20%">人数</th>
             </tr>
         </thead>
 
@@ -39,6 +40,13 @@
                     Bコート
                     <% end %>
                 </td>
+                <td><%= @reservation.number %>
+                    <%= form_for @reservation, url: admins_my_reservation_path(@user.id, @reservation.id), method: :patch do |f| %>
+                         <%= f.number_field :number,in: 1..100, step: 1, :value => @reservation.number %>
+                    <%= f.submit "変更", class: "btn btn-primary" %>
+                    <% end %>
+                </td>
+
             </tr>
 
         </tbody>
@@ -66,7 +74,22 @@
 
     </table>
 
-
 </div><!-- --------------------------row------------------------- -->
 
 
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+        <% if @reservation.status == "入金待ち"  %>
+                <%= link_to "入金確認", admins_my_reservation_path(@user.id, @reservation.id, params: { status: '入金確認' }), class: 'btn btn-primary', method: :patch %>
+        <% end %>
+        <% if @reservation.status == "入金確認" ||  @reservation.status == "キャンセル" ||  @reservation.status == "強制キャンセル" %>
+                <%= link_to "入金待ち", admins_my_reservation_path(@user.id, @reservation.id, params: { status: '入金待ち' }), class: 'btn btn-primary', method: :patch %>
+        <% end %>
+    </div>
+
+    <div class="col-md-6">
+    <%= link_to "キャンセル", admins_my_reservation_path(@user.id, @reservation.id, params: { status: 'キャンセル' }), class: 'btn btn-danger btn-primary', method: :patch %>　　　
+    <%= link_to "強制キャンセル", admins_my_reservation_path(@user.id, @reservation.id, params: { status: '強制キャンセル' }), class: 'btn btn-danger btn-primary', method: :patch %>　　　
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
