@@ -20,17 +20,37 @@ class Admins::MyReservationsController < ApplicationController
 
 	def update
 		@reservation = Reservation.find(params[:id])
-		if params[:status]
 		@reservation.status = params[:status]
-		end
-		if params[:number]
-		@reservation.number = params[:number]
-		end
-		if @reservation.save
-		   flash[:notice] = "更新"
-		   redirect_to request.referer
+			if @reservation.save
+			   flash[:notice] = "更新"
+			   redirect_to request.referer
+			else
+				flash[:notice] = "更新失敗"
+				redirect_to request.referer
+			end
+	end
+
+	def number
+		@reservation = Reservation.find(params[:id])
+
+			if @reservation.update(reservation_params)
+			   flash[:notice] = "更新"
+			   redirect_to request.referer
+			else
+				flash[:notice] = "更新失敗"
+				redirect_to request.referer
+			end
+
+	end
+
+
+	def destroy
+		@reservation = Reservation.find(params[:id])
+		if @reservation.destroy
+		   flash[:notice] = "キャンセル完了"
+		   redirect_to admins_my_reservations_path(@reservation.user_id)
 		else
-			flash[:notice] = "更新失敗"
+			flash[:notice] = "キャンセル失敗"
 			redirect_to request.referer
 		end
 	end

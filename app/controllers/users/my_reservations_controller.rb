@@ -4,7 +4,7 @@ class Users::MyReservationsController < ApplicationController
 
 	def index
 		@user = User.find(params[:id])
-		@reservations = Reservation.where(user_id: @user.id)
+		@reservations = Reservation.where(user_id: @user.id, status: "入金待ち")
 	end
 
 	def show
@@ -18,10 +18,10 @@ class Users::MyReservationsController < ApplicationController
 		end
 	end
 
-	def update
+
+	def destroy
 		@reservation = Reservation.find(params[:id])
-		@reservation.status = 2
-		if @reservation.save
+		if @reservation.destroy
 		   flash[:notice] = "キャンセル完了"
 		   redirect_to users_my_reservations_path(current_user.id)
 		else

@@ -29,9 +29,10 @@ Rails.application.routes.draw do
         root 'homes#top'
         resources :users, only:[:index, :show, :edit, :update]do
             member do
-                resources :my_reservations, only:[:index, :show, :update]
+                resources :my_reservations, only:[:index, :show, :update, :destroy]
+                # delete 'reservations/:id/' => 'my_reservations#destroy'
                 # get 'reservation/:id' => 'my_reservations#show'
-                # patch 'reservation/:id' => 'my_reservations#update'
+                patch 'reservations/:id' => 'my_reservations#number', as: :number
             end
         end
         get 'search' => 'users#search'
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
         resources :tennis_courts, only:[:index, :show, :update]
         resources :reservations, param: :date, only:[:index, :show, :edit, :create]
         patch 'reservation/:id/' => 'reservations#update'
+        delete 'reservation/:id/' => 'reservations#destroy'
     end
 
 #---------------------------------------------------
@@ -49,7 +51,8 @@ Rails.application.routes.draw do
             member do
                 get :delete, as: :delete
                 patch :active, as: :active
-                resources :my_reservations, only:[:index, :show, :update]
+                resources :my_reservations, only:[:index, :show, :destroy]
+                # delete 'reservations/:id/' => 'my_reservations#destroy'
                 # get 'reservation/:id' => 'my_reservations#show'
                 # patch ':reservation/:id' => 'my_reservations#update'
             end

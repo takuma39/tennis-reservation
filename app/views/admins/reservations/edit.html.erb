@@ -21,332 +21,308 @@
                 <th style="width:33%"><%= TennisCourt.find(2).cname%></th>
             </tr>
         </thead>
+
         <tbody>
             <tr>
                 <td>9:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff1.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff1.id), method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation1 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff1.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation1.user_id).name, admins_my_reservation_path(@reservation1.user_id, @reservation1.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff1.id), method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
                 <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "2無効", admins_path(@onoff14.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "9:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "2有効", admins_path(@onoff14.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "9:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation14 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff14.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation14.user_id).name, admins_user_path(@reservation14.user_id, @reservation14.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff14.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>10:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff2.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff2.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff15.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "10:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff15.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation2 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff2.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation2.user_id).name, admins_user_path(@reservation2.user_id, @reservation2.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff2.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "10:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation15 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff15.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation15.user_id).name, admins_user_path(@reservation15.user_id, @reservation15.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff15.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>11:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff3.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff3.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff16.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "11:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff16.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation3 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff3.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation3.user_id).name, admins_user_path(@reservation3.user_id, @reservation3.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff3.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "11:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation16 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff16.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation16.user_id).name, admins_user_path(@reservation16.user_id, @reservation16.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff16.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>12:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff4.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff4.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff17.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "12:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff17.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation4 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff4.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation4.user_id).name, admins_user_path(@reservation4.user_id, @reservation4.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff4.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "12:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation17 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff17.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation17.user_id).name, admins_user_path(@reservation17.user_id, @reservation17.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff17.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>13:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff5.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff5.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff18.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "13:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff18.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation5 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff5.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation5.user_id).name, admins_user_path(@reservation5.user_id, @reservation5.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff5.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "13:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation18 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff18.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation18.user_id).name, admins_user_path(@reservation18.user_id, @reservation18.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff18.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>14:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff6.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff6.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff19.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "14:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff19.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation6 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff6.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation6.user_id).name, admins_user_path(@reservation6.user_id, @reservation6.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff6.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "14:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation19 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff19.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation19.user_id).name, admins_user_path(@reservation19.user_id, @reservation19.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff19.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>15:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff7.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff7.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff20.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "15:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff20.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation7 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff7.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation7.user_id).name, admins_user_path(@reservation7.user_id, @reservation7.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff7.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "15:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation20 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff20.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation20.user_id).name, admins_user_path(@reservation20.user_id, @reservation20.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff20.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>16:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff8.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff8.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff21.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "16:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff21.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation8 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff8.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation8.user_id).name, admins_user_path(@reservation8.user_id, @reservation8.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff8.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "16:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation21 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff21.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation21.user_id).name, admins_user_path(@reservation21.user_id, @reservation21.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff21.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>17:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff9.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff9.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff22.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "17:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff22.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation9 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff9.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation9.user_id).name, admins_user_path(@reservation9.user_id, @reservation9.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff9.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "17:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation22 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff22.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation22.user_id).name, admins_user_path(@reservation22.user_id, @reservation22.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff22.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>18:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff10.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff10.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff23.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "18:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff23.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation10 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff10.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation10.user_id).name, admins_user_path(@reservation10.user_id, @reservation10.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff10.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "18:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation23 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff23.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation23.user_id).name, admins_user_path(@reservation23.user_id, @reservation23.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff23.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>19:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff11.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff11.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff24.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "19:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff24.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation11 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff11.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation11.user_id).name, admins_user_path(@reservation11.user_id, @reservation11.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff11.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "19:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation24 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff24.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation24.user_id).name, admins_user_path(@reservation24.user_id, @reservation24.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff24.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>20:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff12.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff12.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff25.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "20:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff25.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation12 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff12.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation12.user_id).name, admins_user_path(@reservation12.user_id, @reservation12.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff12.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "20:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation25 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff25.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation25.user_id).name, admins_user_path(@reservation25.user_id, @reservation25.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff25.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
 
             <tr>
                 <td>21:00</td>
-                        <% if Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:1) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff13.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:1).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                        <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff13.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
-                        <!--  -->
-                        <% if Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
-                            <% unless Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2) %>
-                                <td>○　<%= link_to "無効", admins_path(@onoff26.id), method: :patch, class: "btn btn-primary" %></td>
-                            <% else %>
-                                <% uid = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2).user_id %>
-                                <td><%= link_to User.find(uid).name, admins_user_path(uid) %></td>
-                            <% end %>
-                        <% else %><!-- 開放していない場合 -->
-                            <td>-　<%= link_to "有効", admins_path(@onoff26.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
-                        <% end %>
+                <% if Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:1, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation13 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff13.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation13.user_id).name, admins_user_path(@reservation13.user_id, @reservation13.id) %></td>
+                <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff13.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
+                <!--  -->
+                <% if Onoff.find_by(oday: @day, ostart_time: "21:00", tennis_court_id:2, availability:true) %><!-- 開放している場合 -->
+                    <% unless @reservation26 %>
+                        <td>○　<%= link_to "無効", admins_path(@onoff26.id), method: :patch, class: "btn btn-primary" %></td>
+                    <% else %>
+                        <td><%= link_to User.find(@reservation26.user_id).name, admins_user_path(@reservation26.user_id, @reservation26.id) %></td>
+                    <% end %>
+                <% else %><!-- 開放していない場合 -->
+                    <td>-　<%= link_to "有効", admins_path(@onoff26.id), availability: true, method: :patch, class: "btn btn-primary" %></td>
+                <% end %>
             </tr>
         </tbody>
+
     </table>
 
 
