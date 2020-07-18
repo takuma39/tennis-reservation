@@ -21,62 +21,68 @@
 
         <tr>
             <th>氏名</th>
-            <td><%= current_user.name %></td>
+            <td>　<%= current_user.name %></td>
         </tr>
 
         <tr>
             <th>フリガナ</th>
-            <td><%= current_user.name_kana %></td>
+            <td>　<%= current_user.name_kana %></td>
         </tr>
 
         <tr>
             <th>性別</th>
-            <td><%= current_user.gender %></td>
+            <td>　
+                <%if current_user.gender == "man"%>
+                男
+                <% else %>
+                女
+                <% end %>
+            </td>
         </tr>
 
         <tr>
             <th>生年月日</th>
-            <td><%= current_user.birthday %></td>
+            <td>　<%= current_user.birthday.strftime("%Y年%-m月%-d日") %></td>
         </tr>
 
         <tr>
             <th>郵便番号</th>
-            <td><%= current_user.postcode %></td>
+            <td>　<%= current_user.postcode %></td>
         </tr>
 
         <tr>
             <th>都道府県</th>
-            <td><%= current_user.prefecture_name %></td>
+            <td>　<%= current_user.prefecture_name %></td>
         </tr>
 
         <tr>
             <th>市区村町</th>
-            <td><%= current_user.address_city %></td>
+            <td>　<%= current_user.address_city %></td>
         </tr>
 
         <tr>
             <th>町名</th>
-            <td><%= current_user.address_town %></td>
+            <td>　<%= current_user.address_town %></td>
         </tr>
 
         <tr>
             <th>番地</th>
-            <td><%= current_user.address_street %></td>
+            <td>　<%= current_user.address_street %></td>
         </tr>
 
         <tr>
             <th>建物名</th>
-            <td><%= current_user.address_building %></td>
+            <td>　<%= current_user.address_building %></td>
         </tr>
 
         <tr>
             <th>電話番号</th>
-            <td><%= current_user.telephone_number %></td>
+            <td>　<%= current_user.telephone_number %></td>
         </tr>
 
         <tr>
             <th>ランク</th>
-            <td><%= current_user.rank %></td>
+            <td>　<%= current_user.rank %></td>
         </tr>
 
 

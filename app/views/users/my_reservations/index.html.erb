@@ -32,8 +32,8 @@
             <% @reservations.each do |r|%>
             <tr>
                 <td><%= r.status %></td>
-                <td><%= r.day %></td>
-                <td><%= r.start_time %></td>
+                <td><%= r.day.strftime("%Y年%-m月%-d日") %></td>
+                <td><%= r.start_time.strftime("%-H時") %>〜</td>
                 <td><% if r.tennis_court.id == 1 %>
                     Aコート
                     <% else %>

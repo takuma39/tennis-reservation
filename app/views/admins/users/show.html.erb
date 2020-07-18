@@ -21,72 +21,79 @@
 
         <tr>
             <th>氏名</th>
-            <td><%= @user.name %></td>
+            <td>　<%= @user.name %></td>
         </tr>
 
         <tr>
             <th>フリガナ</th>
-            <td><%= @user.name_kana %></td>
+            <td>　<%= @user.name_kana %></td>
         </tr>
 
         <tr>
             <th>性別</th>
-            <td><%= @user.gender %></td>
+            <td>　
+                <%if @user.gender == "man"%>
+                男
+                <% else %>
+                女
+                <% end %>
+
+            </td>
         </tr>
 
         <tr>
             <th>生年月日</th>
-            <td><%= @user.birthday %></td>
+            <td>　<%= @user.birthday.strftime("%Y年%-m月%-d日") %></td>
         </tr>
 
         <tr>
             <th>郵便番号</th>
-            <td><%= @user.postcode %></td>
+            <td>　<%= @user.postcode %></td>
         </tr>
 
         <tr>
             <th>都道府県</th>
-            <td><%= @user.prefecture_name %></td>
+            <td>　<%= @user.prefecture_name %></td>
         </tr>
 
         <tr>
             <th>市区村町</th>
-            <td><%= @user.address_city %></td>
+            <td>　<%= @user.address_city %></td>
         </tr>
 
         <tr>
             <th>町名</th>
-            <td><%= @user.address_town %></td>
+            <td>　<%= @user.address_town %></td>
         </tr>
 
         <tr>
             <th>番地</th>
-            <td><%= @user.address_street %></td>
+            <td>　<%= @user.address_street %></td>
         </tr>
 
         <tr>
             <th>建物名</th>
-            <td><%= @user.address_building %></td>
+            <td>　<%= @user.address_building %></td>
         </tr>
 
         <tr>
             <th>電話番号</th>
-            <td><%= @user.telephone_number %></td>
+            <td>　<%= @user.telephone_number %></td>
         </tr>
 
         <tr>
             <th>ランク</th>
-            <td><%= @user.rank %></td>
+            <td>　<%= @user.rank %></td>
         </tr>
 
         <tr>
             <th>ペナルティー数</th>
-            <td><%= @user.penalty %></td>
+            <td>　<%= @user.penalty %></td>
         </tr>
 
         <tr>
             <th>ステータス</th>
-            <td>
+            <td>　
                 <% if @user.active == true %>
                         有効
                     <% else %>

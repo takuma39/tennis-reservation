@@ -43,9 +43,15 @@
                 </td>
                 <td><%= user.name_kana %></td>
 
-                <td><%= user.gender %></td>
+                <td>
+                    <%if user.gender == "man"%>
+                    男
+                    <% else %>
+                    女
+                    <% end %>
+                </td>
 
-                <td><%= user.birthday %></td>
+                <td><%= user.birthday.strftime("%Y年%-m月%-d日") %></td>
 
                 <td><%= user.telephone_number %></td>
 

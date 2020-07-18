@@ -31,8 +31,8 @@
         <tbody>
             <tr>
                 <td><%= @reservation.status %></td>
-                <td><%= @reservation.day %></td>
-                <td><%= @reservation.start_time %></td>
+                <td><%= @reservation.day.strftime("%Y年%-m月%-d日") %></td>
+                <td><%= @reservation.start_time.strftime("%-H時") %></td>
                 <td><% if @reservation.tennis_court.id == 1 %>
                     Aコート
                     <% else %>
