@@ -1,6 +1,6 @@
 <div class="row"><!-- --------------------row-------------------- -->
     <div class="col-md-3">
-        <h2><%= @user.name %>　様</h2>
+        <h2><%= @user.name %> 様</h2>
     </div>
 
     <div class="col-md-2 col-md-offset-5">
@@ -37,7 +37,6 @@
                 <% else %>
                 女
                 <% end %>
-
             </td>
         </tr>
 
@@ -107,7 +106,15 @@
 
 <div class="row"><!-- --------------------row-------------------- -->
     <h4>備考</h4>
-    <div style="border: 2px solid #000000">
+    <div class="remark">
         <%= @user.remark %>
     </div>
 </div><!-- --------------------------row------------------------- -->
+
+
+<style>
+    .remark {
+  border: 2px solid #000000 ;
+  height:250px;
+}
+</style>

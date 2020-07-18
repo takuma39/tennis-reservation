@@ -1,7 +1,7 @@
 <div class="row"><!-- --------------------row-------------------- -->
 
     <div class="col-md-3">
-        <h2><%= @user.name %>　様</h2>
+        <h2><%= link_to @user.name + " 様", admins_user_path(@user.id) %></h2>
     </div>
 
     <div class="col-md-2 col-md-offset-5">
@@ -17,11 +17,11 @@
 
 <div class="row"><!-- --------------------row-------------------- -->
 
-    <div class="col-md-6">
+    <div class="col-md-7">
         <h3>User情報</h3>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="actions">
             <%= f.submit "更新", class: "btn btn-primary" %>
         </div>
@@ -33,7 +33,7 @@
 
 <div class="row"><!-- --------------------row-------------------- -->
 
-    <div class="col-md-6"><!-- col -->
+    <div class="col-md-3"><!-- col -->
 
         <div class="field">
             <%= f.label :name, "名前" %><br />
@@ -55,6 +55,10 @@
             <%= f.label :birthday, "生年月日" %><br />
             <%= f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
         </div>
+
+    </div><!-- col -->
+
+    <div class="col-md-3"><!-- col -->
 
         <!-- 住所 -->
         <div class="field">
@@ -91,7 +95,7 @@
     </div><!-- col -->
 
 
-    <div class="col-md-6"><!-- col -->
+    <div class="col-md-4"><!-- col -->
 
         <div class="field">
             <%= f.label :telephone_number, "電話番号" %><br />
@@ -135,7 +139,7 @@
 
         <div class="field">
             <%= f.label :remark, "備考" %><br />
-            <%= f.text_field :remark, autofocus: true, placeholder: '備考' %>
+            <%= f.text_area :remark, autofocus: true, placeholder: '備考', size: "20x10", class: "form-control" %>
         </div>
 
     </div><!-- col -->

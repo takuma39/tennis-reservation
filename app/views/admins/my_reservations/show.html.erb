@@ -1,6 +1,6 @@
 <div class="row"><!-- --------------------row-------------------- -->
     <div class="col-md-3">
-        <h2><%= @user.name %>　様</h2>
+        <h2><%= link_to @user.name + " 様", admins_user_path(@user.id) %></h2>
     </div>
 
     <div class="col-md-2 col-md-offset-5">
@@ -93,4 +93,10 @@
     <% end %>
     </div>
 
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div style="border: 2px solid #000000">
+        <%= @user.remark %>
+    </div>
 </div><!-- --------------------------row------------------------- -->
