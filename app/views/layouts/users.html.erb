@@ -17,8 +17,8 @@
     <header class="navbar navbar-fixed-top", style="background-color: limegreen;">
 
       <nav class="nav navbar-nav navbar-left">
-        <span style="font-family: cursive; font-size: 35px;">
-             <%= link_to 'LOGO',users_root_path %> </span>
+        <span style="font-size: 35px;">
+             <%= link_to '　TENNIS',users_root_path %> </span>
       </nav>
 
       <nav>
@@ -26,15 +26,15 @@
           <!--if文でサインインとアウト時の表示を変更-->
           <% if user_signed_in? %>
 
-          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "予約", users_reservations_path %></li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "マイページ", users_user_path(current_user.id) %></li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <li> <%= link_to "予約", users_reservations_path %></li>
+          <li> <%= link_to "マイページ", users_user_path(current_user.id) %></li>
+          <li> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
 
           <% else %>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "予約", users_reservations_path %></li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "新規登録", new_user_registration_path %></li>
-          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ログイン", new_user_session_path %></li>
+          <li> <%= link_to "予約", users_reservations_path %></li>
+          <li> <%= link_to "新規登録", new_user_registration_path %></li>
+          <li> <%= link_to "ログイン", new_user_session_path %></li>
 
           <% end %>
         </ul>

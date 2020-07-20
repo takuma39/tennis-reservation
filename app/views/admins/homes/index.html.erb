@@ -5,3 +5,45 @@
 
 </div><!-- --------------------------row------------------------- -->
 
+<div class="row"><!-- --------------------row-------------------- -->
+	<% @topimages.each do |topimage| %>
+	    <div class="col-md-12">
+	    	<%= link_to admins_top_image_path(topimage.id) do %>
+				<div class="thumbnail">
+						<%= attachment_image_tag topimage, :top_image, :fill, 1000, 350 %>
+				</div>
+			<% end %>
+	    </div>
+    <% end %>
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+	<div style="text-align: center">
+		<div class="btn-lg btn-primary">
+			ログイン
+		</div>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+	<div style="text-align: center">
+        <div class="btn-lg btn-success">
+        	予約
+        </div>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <div class="col-md-6">
+        
+    </div>
+
+    <div class="col-md-6">
+        
+    </div>
+
+</div><!-- --------------------------row------------------------- -->

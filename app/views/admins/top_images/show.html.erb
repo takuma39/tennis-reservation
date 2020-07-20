@@ -1,4 +1,18 @@
 <div class="row"><!-- --------------------row-------------------- -->
+
+    <div class="col-md-4">
+        <h2><%= link_to "戻る", admins_top_images_path, class: "btn btn-primary" %></h2>
+    </div>
+
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
     <div class="col-md-6">
     	<%= attachment_image_tag @topimage, :top_image, :fill, 400, 300 %>
     </div>
