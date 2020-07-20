@@ -1,0 +1,41 @@
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+	<%= form_for @topimage, url: admins_top_images_path do |f| %>
+		<%= f.attachment_field :top_image %>
+		<%= f.submit "追加", class: "btn btn-primary" %>
+	<% end %>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+        <h2>一覧</h2>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+	<% @topimages.each do |topimage| %>
+	    <div class="col-md-6">
+	    	<%= link_to admins_top_image_path(topimage.id) do %>
+				<div class="thumbnail">
+						<%= attachment_image_tag topimage, :top_image, :fill, 400, 300 %>
+					<div>
+						<p>ID :<%= topimage.id %></p>
+						<p>
+							<% if topimage.top_status == false %>
+							無効
+							<% else %>
+							有効
+							<% end %>
+						</p>
+					</div>
+				</div>
+			<% end %>
+	    </div>
+    <% end %>
+
+</div><!-- --------------------------row------------------------- -->

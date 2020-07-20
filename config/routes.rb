@@ -27,9 +27,10 @@ Rails.application.routes.draw do
 
     namespace :admins do
         root 'homes#top'
+        resources :homes, only:[:index]
         resources :users, only:[:index, :show, :edit, :update]do
             member do
-                resources :my_reservations, only:[:index, :show, :update, :destroy]
+                resources :my_reservations, only:[:index, :show, :destroy]
                 # delete 'reservations/:id/' => 'my_reservations#destroy'
                 # get 'reservation/:id' => 'my_reservations#show'
                 patch 'reservations/:id' => 'my_reservations#number', as: :number
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
         resources :reservations, param: :date, only:[:index, :show, :edit, :create]
         patch 'reservation/:id/' => 'reservations#update'
         delete 'reservation/:id/' => 'reservations#destroy'
+        resources :top_images, only:[:index, :show, :update, :destroy, :create]
     end
 
 #---------------------------------------------------

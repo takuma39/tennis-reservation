@@ -30,6 +30,7 @@
           <!--if文でサインインとアウト時の表示を変更-->
           <% if admin_signed_in? %>
           <li style="font-family: 'Hannotate SC',sans-serif;">  "統計"</li>
+          <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "ユーザーTOP", admins_homes_path %></li>
           <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "コート一覧", admins_tennis_courts_path %></li>
           <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "予約一覧", admins_reservations_path %></li>
           <li style="font-family: 'Hannotate SC',sans-serif;"> <%= link_to "会員一覧", admins_users_path %></li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_060529) do
+ActiveRecord::Schema.define(version: 2020_07_20_081126) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 2020_07_14_060529) do
     t.string "cname"
     t.string "ctype"
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "top_images", force: :cascade do |t|
+    t.string "top_image_id", null: false
+    t.boolean "top_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,26 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+    	<%= attachment_image_tag @topimage, :top_image, :fill, 400, 300 %>
+    </div>
+
+    <div class="col-md-6">
+		<p>ID :<%= @topimage.id %></p>
+		<p>
+			status :
+			<% if @topimage.top_status == false %>
+				無効
+			<% else %>
+				有効
+			<% end %>
+
+	        <% if @topimage.top_status == false  %>
+	                <%= link_to "有効にする", admins_top_image_path(@topimage.id, params: { top_status: true }), class: 'btn btn-primary', method: :patch %>
+	        <% end %>
+	        <% if @topimage.top_status == true %>
+	                <%= link_to "無効にする", admins_top_image_path(@topimage.id, params: { top_status: false }), class: 'btn btn-primary', method: :patch %>
+	        <% end %>
+		</p>
+		<p><%= link_to "削除", admins_top_image_path(@topimage.id), class: 'btn btn-danger btn-primary', method: :delete %></p>
+    </div>
+
+</div><!-- --------------------------row------------------------- -->

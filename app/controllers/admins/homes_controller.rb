@@ -34,4 +34,7 @@ class Admins::HomesController < ApplicationController
 		@reservation26 = Reservation.find_by(day: @day, start_time: "21:00", tennis_court_id:2)
 	end
 
+	def index
+	end
+
 end
