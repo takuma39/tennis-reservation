@@ -30,7 +30,7 @@ Rails.application.routes.draw do
         resources :homes, only:[:index]
         resources :users, only:[:index, :show, :edit, :update]do
             member do
-                resources :my_reservations, only:[:index, :show, :destroy]
+                resources :my_reservations, only:[:index, :show, :destroy, :update]
                 # delete 'reservations/:id/' => 'my_reservations#destroy'
                 # get 'reservation/:id' => 'my_reservations#show'
                 patch 'reservations/:id' => 'my_reservations#number', as: :number

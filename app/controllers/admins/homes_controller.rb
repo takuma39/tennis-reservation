@@ -35,6 +35,7 @@ class Admins::HomesController < ApplicationController
 	end
 
 	def index
+		@topimages = TopImage.where(top_status: true)
 	end
 
 end
