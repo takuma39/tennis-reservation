@@ -3,15 +3,28 @@ class Admins::StatisticsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@users = User.all
-		@r_reservations = Reservation.where(status: "入金確認")
-		@r_avarage =  @users.count
+		# 予約が無い場合の対策
+		unless Reservation.exists?(status: "入金確認")
+			flash[:notice] = "統計がありません"
+			redirect_to admins_root_path
+		end
 
+		# ユーザー全て
+		@users = User.all
+
+		# 入金確認が取れている予約全て
+		@r_reservations = Reservation.where(status: "入金確認")
+
+		# 予約全て
 		@reservations = Reservation.all
 
+		# 予約開放数
 		@onoffs = Onoff.where(availability: true)
 
-		# 挿入金額平均
+		# 平均予約回数
+		@r_avarage = @r_reservations.count / @users.count
+
+		# 総入金額平均
 		@p_avarage = @r_reservations.sum(:total_price) / @users.count
 
 # 時間帯毎の予約数
