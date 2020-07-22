@@ -28,7 +28,7 @@ class Admins::TopImagesController < ApplicationController
 		@topimage.top_status = params[:top_status]
       if @topimage.save
         flash[:notice] = "更新完了"
-        redirect_to admins_top_image_path(@topimage.id)
+        redirect_to admins_top_images_path
       else
       	flash[:notice] = "更新失敗"
         render :show

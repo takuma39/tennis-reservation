@@ -1,12 +1,13 @@
 <div class="row"><!-- --------------------row-------------------- -->
-    <div class="col-md-3">
+    <div class="col-md-5">
+        <%= link_to "戻る", admins_user_path(@user.id), class: "btn btn-primary" %>
+    </div>
+
+    <div class="col-md-4">
         <h2><%= link_to @user.name + " 様", admins_user_path(@user.id) %></h2>
     </div>
 
-    <div class="col-md-2 col-md-offset-5">
-    </div>
-
-    <div class="col-md-2">
+    <div class="col-md-3">
     </div>
 </div><!-- --------------------------row------------------------- -->
 

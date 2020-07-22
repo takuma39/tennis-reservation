@@ -2,7 +2,7 @@
 
     <div class="col-md-6 col-md-offset-6">
 
-    <div class="search-form" style="margin-top: 30px; text-align: center;">
+    <div class="search-form">
         <%= form_tag(admins_search_path,:method => 'get') do %>
             <%= text_field_tag :search_word %>
             <%= select_tag :search_type, options_for_select(['氏名', 'フリガナ', '生年月日', '電話番号', 'メルアドレス',]) %>
