@@ -79,12 +79,19 @@
 
 <div class="row"><!-- --------------------row-------------------- -->
     <div class="col-md-6">
-        <% if @reservation.status == "入金待ち"  %>
-                <%= link_to "入金確認", admins_my_reservation_path(@reservation.id, params: { status: '入金確認' }), class: 'btn btn-primary', method: :patch %>
+        <% if @reservation.number == 0  %>
+            人数を変更してください
         <% end %>
-        <% if @reservation.status == "入金確認" %>
-                <%= link_to "入金待ち", admins_my_reservation_path(@reservation.id, params: { status: '入金待ち' }), class: 'btn btn-primary', method: :patch %>
+
+        <% unless @reservation.number == 0  %>
+            <% if @reservation.status == "入金待ち"  %>
+                    <%= link_to "入金確認", admins_my_reservation_path(@reservation.id, params: { status: '入金確認' }), class: 'btn btn-primary', method: :patch %>
+            <% end %>
         <% end %>
+
+            <% if @reservation.status == "入金確認" %>
+                    <%= link_to "入金待ち", admins_my_reservation_path(@reservation.id, params: { status: '入金待ち' }), class: 'btn btn-primary', method: :patch %>
+            <% end %>
     </div>
 
     <div class="col-md-6">

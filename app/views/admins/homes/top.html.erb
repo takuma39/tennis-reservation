@@ -17,7 +17,7 @@
 
         <thead>
             <tr class="active">
-                <th style="width:33%">時間</th>
+                <th style="width:20%">時間</th>
                 <th style="width:33%"><%= TennisCourt.find(1).cname%></th>
                 <th style="width:33%"><%= TennisCourt.find(2).cname%></th>
             </tr>
@@ -30,7 +30,13 @@
                     <% unless @reservation1 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation1.user_id).name, admins_my_reservation_path(@reservation1.user_id, @reservation1.id) %></td>
+                        <td>
+                            <%= link_to User.find(@reservation1.user_id).name, admins_my_reservation_path(@reservation1.user_id, @reservation1.id) %>
+                                <% if @reservation1.status == "入金確認" %>
+                                　/　<%= @reservation1.status %>
+                                　/　<%= @reservation1.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -40,7 +46,13 @@
                     <% unless @reservation14 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation14.user_id).name, admins_my_reservation_path(@reservation14.user_id, @reservation14.id) %></td>
+                        <td>
+                            <%= link_to User.find(@reservation14.user_id).name, admins_my_reservation_path(@reservation14.user_id, @reservation14.id) %>
+                                <% if @reservation14.status == "入金確認" %>
+                                　/　<%= @reservation14.status %>
+                                　/　<%= @reservation14.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -53,7 +65,12 @@
                     <% unless @reservation2 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation2.user_id).name, admins_my_reservation_path(@reservation2.user_id, @reservation2.id) %></td>
+                        <td><%= link_to User.find(@reservation2.user_id).name, admins_my_reservation_path(@reservation2.user_id, @reservation2.id) %>
+                                <% if @reservation2.status == "入金確認" %>
+                                　/　<%= @reservation2.status %>
+                                　/　<%= @reservation2.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -63,7 +80,12 @@
                     <% unless @reservation15 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation15.user_id).name, admins_my_reservation_path(@reservation15.user_id, @reservation15.id) %></td>
+                        <td><%= link_to User.find(@reservation15.user_id).name, admins_my_reservation_path(@reservation15.user_id, @reservation15.id) %>
+                                <% if @reservation15.status == "入金確認" %>
+                                　/　<%= @reservation15.status %>
+                                　/　<%= @reservation15.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -76,7 +98,12 @@
                     <% unless @reservation3 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation3.user_id).name, admins_my_reservation_path(@reservation3.user_id, @reservation3.id) %></td>
+                        <td><%= link_to User.find(@reservation3.user_id).name, admins_my_reservation_path(@reservation3.user_id, @reservation3.id) %>
+                                <% if @reservation3.status == "入金確認" %>
+                                　/　<%= @reservation3.status %>
+                                　/　<%= @reservation3.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -86,7 +113,12 @@
                     <% unless @reservation16 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation16.user_id).name, admins_my_reservation_path(@reservation16.user_id, @reservation16.id) %></td>
+                        <td><%= link_to User.find(@reservation16.user_id).name, admins_my_reservation_path(@reservation16.user_id, @reservation16.id) %>
+                                <% if @reservation16.status == "入金確認" %>
+                                　/　<%= @reservation16.status %>
+                                　/　<%= @reservation16.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -99,7 +131,12 @@
                     <% unless @reservation4 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation4.user_id).name, admins_my_reservation_path(@reservation4.user_id, @reservation4.id) %></td>
+                        <td><%= link_to User.find(@reservation4.user_id).name, admins_my_reservation_path(@reservation4.user_id, @reservation4.id) %>
+                                <% if @reservation4.status == "入金確認" %>
+                                　/　<%= @reservation4.status %>
+                                　/　<%= @reservation4.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -109,7 +146,12 @@
                     <% unless @reservation17 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation17.user_id).name, admins_my_reservation_path(@reservation17.user_id, @reservation17.id) %></td>
+                        <td><%= link_to User.find(@reservation17.user_id).name, admins_my_reservation_path(@reservation17.user_id, @reservation17.id) %>
+                                <% if @reservation17.status == "入金確認" %>
+                                　/　<%= @reservation17.status %>
+                                　/　<%= @reservation17.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -122,7 +164,12 @@
                     <% unless @reservation5 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation5.user_id).name, admins_my_reservation_path(@reservation5.user_id, @reservation5.id) %></td>
+                        <td><%= link_to User.find(@reservation5.user_id).name, admins_my_reservation_path(@reservation5.user_id, @reservation5.id) %>
+                                <% if @reservation5.status == "入金確認" %>
+                                　/　<%= @reservation5.status %>
+                                　/　<%= @reservation5.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -132,7 +179,12 @@
                     <% unless @reservation18 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation18.user_id).name, admins_my_reservation_path(@reservation18.user_id, @reservation18.id) %></td>
+                        <td><%= link_to User.find(@reservation18.user_id).name, admins_my_reservation_path(@reservation18.user_id, @reservation18.id) %>
+                                <% if @reservation18.status == "入金確認" %>
+                                　/　<%= @reservation18.status %>
+                                　/　<%= @reservation18.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -145,7 +197,12 @@
                     <% unless @reservation6 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation6.user_id).name, admins_my_reservation_path(@reservation6.user_id, @reservation6.id) %></td>
+                        <td><%= link_to User.find(@reservation6.user_id).name, admins_my_reservation_path(@reservation6.user_id, @reservation6.id) %>
+                                <% if @reservation6.status == "入金確認" %>
+                                　/　<%= @reservation6.status %>
+                                　/　<%= @reservation6.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -155,7 +212,12 @@
                     <% unless @reservation19 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation19.user_id).name, admins_my_reservation_path(@reservation19.user_id, @reservation19.id) %></td>
+                        <td><%= link_to User.find(@reservation19.user_id).name, admins_my_reservation_path(@reservation19.user_id, @reservation19.id) %>
+                                <% if @reservation19.status == "入金確認" %>
+                                　/　<%= @reservation19.status %>
+                                　/　<%= @reservation19.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -168,7 +230,12 @@
                     <% unless @reservation7 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation7.user_id).name, admins_my_reservation_path(@reservation7.user_id, @reservation7.id) %></td>
+                        <td><%= link_to User.find(@reservation7.user_id).name, admins_my_reservation_path(@reservation7.user_id, @reservation7.id) %>
+                                <% if @reservation7.status == "入金確認" %>
+                                　/　<%= @reservation7.status %>
+                                　/　<%= @reservation7.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -178,7 +245,12 @@
                     <% unless @reservation20 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation20.user_id).name, admins_my_reservation_path(@reservation20.user_id, @reservation20.id) %></td>
+                        <td><%= link_to User.find(@reservation20.user_id).name, admins_my_reservation_path(@reservation20.user_id, @reservation20.id) %>
+                                <% if @reservation20.status == "入金確認" %>
+                                　/　<%= @reservation20.status %>
+                                　/　<%= @reservation20.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -191,7 +263,12 @@
                     <% unless @reservation8 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation8.user_id).name, admins_my_reservation_path(@reservation8.user_id, @reservation8.id) %></td>
+                        <td><%= link_to User.find(@reservation8.user_id).name, admins_my_reservation_path(@reservation8.user_id, @reservation8.id) %>
+                                <% if @reservation8.status == "入金確認" %>
+                                　/　<%= @reservation8.status %>
+                                　/　<%= @reservation8.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -201,7 +278,12 @@
                     <% unless @reservation21 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation21.user_id).name, admins_my_reservation_path(@reservation21.user_id, @reservation21.id) %></td>
+                        <td><%= link_to User.find(@reservation21.user_id).name, admins_my_reservation_path(@reservation21.user_id, @reservation21.id) %>
+                                <% if @reservation21.status == "入金確認" %>
+                                　/　<%= @reservation21.status %>
+                                　/　<%= @reservation21.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -214,7 +296,12 @@
                     <% unless @reservation9 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation9.user_id).name, admins_my_reservation_path(@reservation9.user_id, @reservation9.id) %></td>
+                        <td><%= link_to User.find(@reservation9.user_id).name, admins_my_reservation_path(@reservation9.user_id, @reservation9.id) %>
+                                <% if @reservation9.status == "入金確認" %>
+                                　/　<%= @reservation9.status %>
+                                　/　<%= @reservation9.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -224,7 +311,12 @@
                     <% unless @reservation22 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation22.user_id).name, admins_my_reservation_path(@reservation22.user_id, @reservation22.id) %></td>
+                        <td><%= link_to User.find(@reservation22.user_id).name, admins_my_reservation_path(@reservation22.user_id, @reservation22.id) %>
+                                <% if @reservation22.status == "入金確認" %>
+                                　/　<%= @reservation22.status %>
+                                　/　<%= @reservation22.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -237,7 +329,12 @@
                     <% unless @reservation10 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation10.user_id).name, admins_my_reservation_path(@reservation10.user_id, @reservation10.id) %></td>
+                        <td><%= link_to User.find(@reservation10.user_id).name, admins_my_reservation_path(@reservation10.user_id, @reservation10.id) %>
+                                <% if @reservation10.status == "入金確認" %>
+                                　/　<%= @reservation10.status %>
+                                　/　<%= @reservation10.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -247,7 +344,12 @@
                     <% unless @reservation23 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation23.user_id).name, admins_my_reservation_path(@reservation23.user_id, @reservation23.id) %></td>
+                        <td><%= link_to User.find(@reservation23.user_id).name, admins_my_reservation_path(@reservation23.user_id, @reservation23.id) %>
+                                <% if @reservation23.status == "入金確認" %>
+                                　/　<%= @reservation23.status %>
+                                　/　<%= @reservation23.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -260,7 +362,12 @@
                     <% unless @reservation11 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation11.user_id).name, admins_my_reservation_path(@reservation11.user_id, @reservation11.id) %></td>
+                        <td><%= link_to User.find(@reservation11.user_id).name, admins_my_reservation_path(@reservation11.user_id, @reservation11.id) %>
+                                <% if @reservation11.status == "入金確認" %>
+                                　/　<%= @reservation11.status %>
+                                　/　<%= @reservation11.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -270,7 +377,12 @@
                     <% unless @reservation24 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation24.user_id).name, admins_my_reservation_path(@reservation24.user_id, @reservation24.id) %></td>
+                        <td><%= link_to User.find(@reservation24.user_id).name, admins_my_reservation_path(@reservation24.user_id, @reservation24.id) %>
+                                <% if @reservation24.status == "入金確認" %>
+                                　/　<%= @reservation24.status %>
+                                　/　<%= @reservation24.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -283,7 +395,12 @@
                     <% unless @reservation12 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation12.user_id).name, admins_my_reservation_path(@reservation12.user_id, @reservation12.id) %></td>
+                        <td><%= link_to User.find(@reservation12.user_id).name, admins_my_reservation_path(@reservation12.user_id, @reservation12.id) %>
+                                <% if @reservation12.status == "入金確認" %>
+                                　/　<%= @reservation12.status %>
+                                　/　<%= @reservation12.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -293,7 +410,12 @@
                     <% unless @reservation25 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation25.user_id).name, admins_my_reservation_path(@reservation25.user_id, @reservation25.id) %></td>
+                        <td><%= link_to User.find(@reservation25.user_id).name, admins_my_reservation_path(@reservation25.user_id, @reservation25.id) %>
+                                <% if @reservation25.status == "入金確認" %>
+                                　/　<%= @reservation25.status %>
+                                　/　<%= @reservation25.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -306,7 +428,12 @@
                     <% unless @reservation13 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation13.user_id).name, admins_my_reservation_path(@reservation13.user_id, @reservation13.id) %></td>
+                        <td><%= link_to User.find(@reservation13.user_id).name, admins_my_reservation_path(@reservation13.user_id, @reservation13.id) %>
+                                <% if @reservation13.status == "入金確認" %>
+                                　/　<%= @reservation13.status %>
+                                　/　<%= @reservation13.number %>人
+                                <% end %>
+                        </td>
                 <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>
@@ -316,7 +443,12 @@
                     <% unless @reservation26 %>
                         <td>○</td>
                     <% else %>
-                        <td><%= link_to User.find(@reservation26.user_id).name, admins_my_reservation_path(@reservation26.user_id, @reservation26.id) %></td>
+                        <td><%= link_to User.find(@reservation26.user_id).name, admins_my_reservation_path(@reservation26.user_id, @reservation26.id) %>
+                                <% if @reservation26.status == "入金確認" %>
+                                　/　<%= @reservation26.status %>
+                                　/　<%= @reservation26.number %>人
+                                <% end %>
+                        </td>
                     <% end %>
                 <% else %><!-- 開放していない場合 -->
                     <td>-</td>

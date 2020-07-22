@@ -21,6 +21,9 @@ class Admins::MyReservationsController < ApplicationController
 	def update
 		@reservation = Reservation.find(params[:id])
 		@reservation.status = params[:status]
+		if @reservation.status == "入金待ち"
+			@reservation.number = 0
+		end
 			if @reservation.save
 			   flash[:notice] = "更新"
 			   redirect_to request.referer
