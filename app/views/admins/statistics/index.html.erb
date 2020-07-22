@@ -1,6 +1,6 @@
 <div class="row"><!-- --------------------row-------------------- -->
     <div class="col-md-3">
-    	<h2>統計</h2>
+        <h2>統計</h2>
     </div>
 
     <div class="col-md-2 col-md-offset-5">
@@ -19,16 +19,43 @@
         <thead>
             <tr class="active">
                 <th style="width:30%">ユーザー数</th>
-                <th style="width:30%">総予約数(入金確認済)</th>
-                <th style="width:30%">一人平均</th>
+                <th style="width:30%">男</th>
+                <th style="width:30%">女</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td><%= @users.count %></td>
-                <td><%= @reservations.count %></td>
-                <td><%= @r_avarage %></td>
+                <td><%= @users.count %>人</td>
+                <td><%= @users.where(gender: "man").count %>人</td>
+                <td><%= @users.where(gender: "woman").count %>人</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    </div>
+
+    <div class="col-md-6">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:30%">来場者数</th>
+                <th style="width:30%">一組平均</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><%= @r_reservations.sum(:number) %>人</td>
+                <td><%= @r_reservations.sum(:number) / @r_reservations.count %>人</td>
             </tr>
         </tbody>
 
@@ -48,18 +75,124 @@
 
         <thead>
             <tr class="active">
-                <th style="width:30%">ユーザー数</th>
-                <th style="width:30%">総予約数(入金確認済)</th>
+                <th style="width:30%">総予約数数</th>
+                <th style="width:40%">総予約数(入金確認済)</th>
                 <th style="width:30%">一人平均</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td><%= @users.count %></td>
-                <td><%= @reservations.count %></td>
-                <td><%= @r_avarage %></td>
+                <td><%= @onoffs.count %>回</td>
+                <td><%= @r_reservations.count %>回</td>
+                <td><%= @r_avarage %>回</td>
             </tr>
+        </tbody>
+
+    </table>
+
+    </div>
+
+    <div class="col-md-6">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:30%">総入金額</th>
+                <th style="width:30%">一人平均</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><%= @r_reservations.sum(:total_price).to_s(:delimited) %>円</td>
+                <td><%= @p_avarage.to_s(:delimited) %>円</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    </div>
+
+    <div class="col-md-6">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-6">
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:30%">時間</th>
+                <th style="width:30%">予約数</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>9:00</td>
+                <td><%= @time1.count %></td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td><%= @time2.count %></td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <td><%= @time3.count %></td>
+            </tr>
+            <tr>
+                <td>12:00</td>
+                <td><%= @time4.count %></td>
+            </tr>
+            <tr>
+                <td>13:00</td>
+                <td><%= @time5.count %></td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td><%= @time6.count %></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td><%= @time7.count %></td>
+            </tr>
+            <tr>
+                <td>16:00</td>
+                <td><%= @time8.count %></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td><%= @time9.count %></td>
+            </tr>
+            <tr>
+                <td>18:00</td>
+                <td><%= @time10.count %></td>
+            </tr>
+            <tr>
+                <td>19:00</td>
+                <td><%= @time11.count %></td>
+            </tr>
+            <tr>
+                <td>20:00</td>
+                <td><%= @time12.count %></td>
+            </tr>
+            <tr>
+                <td>21:00</td>
+                <td><%= @time13.count %></td>
+            </tr>
+
+
         </tbody>
 
     </table>
