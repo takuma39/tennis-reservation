@@ -69,17 +69,18 @@ $(function () {
                 eventColor: '#87cefa',
                 //イベントの文字色を変える
                 eventTextColor: '#000000',
-                eventRender: function(event, element) {
+                // eventRender: function(event, element) {　これだと来月に移動するとクリックできない
+                viewRender: function(event, element) {
                     element.css("font-size", "0.8em");
                     element.css("padding", "5px");
+
+                    $("#calendar td.fc-day").on("click", function() {
+                        var date = $(this).data("date")
+                        location.href = "/admins/reservations/" + date
+                    })
                 }
             });
         }
-
-        $("#calendar td.fc-day").on("click", function() {
-            var date = $(this).data("date")
-            location.href = "/admins/reservations/" + date
-        })
     });
 });
 
@@ -138,17 +139,18 @@ $(function () {
                 eventColor: '#87cefa',
                 //イベントの文字色を変える
                 eventTextColor: '#000000',
-                eventRender: function(event, element) {
+                // eventRender: function(event, element) {　これだと来月に移動するとクリックできない
+                viewRender: function(event, element) {
                     element.css("font-size", "0.8em");
                     element.css("padding", "5px");
+
+                    $("#ucalendar td.fc-day").on("click", function() {
+                        var date = $(this).data("date")
+                        location.href = "/users/reservations/" + date
+                    })
                 }
             });
         }
-
-        $("#ucalendar td.fc-day").on("click", function() {
-            var date = $(this).data("date")
-            location.href = "/users/reservations/" + date
-        })
     });
 });
 
