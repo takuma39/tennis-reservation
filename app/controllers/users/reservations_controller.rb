@@ -6,6 +6,10 @@ class Users::ReservationsController < ApplicationController
 
 	def show
 		@day = params[:date]
+		if @day.to_date < Time.now.ago(1.days)
+			flash[:notice] = "予約できません"
+			redirect_to users_reservations_path
+		end
 	end
 
 
