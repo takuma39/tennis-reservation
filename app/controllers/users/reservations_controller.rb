@@ -25,6 +25,12 @@ class Users::ReservationsController < ApplicationController
 			@nprice = 0
 		end
 		@tprice = @bprice + @nprice
+
+		# 重複予約対策
+		if Reservation.find_by(day: @day, start_time: @stime, tennis_court_id: @court)
+			flash[:notice] = "予約が空いてません"
+			redirect_to request.referer
+		end
 	end
 
 	def complete
@@ -33,7 +39,7 @@ class Users::ReservationsController < ApplicationController
 
 	def create
 		# 重複予約対策
-		# if Reservation.find(reservation_params)
+		# if Reservation.find(day: params[:date])
 		# 	flash[:notice] = "予約が空いてません"
 		# 	redirect_to request.referer
 		# end
