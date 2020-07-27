@@ -32,16 +32,14 @@
           <!--if文でサインインとアウト時の表示を変更-->
           <% if admin_signed_in? %>
           <li> <%= link_to "統計", admins_statistics_path %></li>
-          <li> <%= link_to "料金設定", admins_prices_path %></li>
-          <li> <%= link_to "TOP編集", admins_homes_path %></li>
-          <li> <%= link_to "コート一覧", admins_tennis_courts_path %></li>
+          <li> <%= link_to "設定", admins_settings_path %></li>
           <li> <%= link_to "予約一覧", admins_reservations_path %></li>
           <li> <%= link_to "会員一覧", admins_users_path %></li>
           <li> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
           </li>
 
           <% else %>
-
+          <li> <%= link_to "Userログイン", new_user_session_path %></li>
           <li> <%= link_to "ログイン", new_admin_session_path %></li>
 
           <% end %>

@@ -45,6 +45,7 @@ Rails.application.routes.draw do
         resources :top_images, only:[:index, :show, :update, :destroy, :create]
         resources :statistics, only:[:index]
         resources :prices, only:[:index, :update]
+        resources :settings, only:[:index]
     end
 
 #---------------------------------------------------
