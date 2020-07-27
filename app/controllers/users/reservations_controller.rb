@@ -18,13 +18,13 @@ class Users::ReservationsController < ApplicationController
 		@day = params[:date]
 		@stime = params[:start_time]
 		@court = params[:tennis_court_id]
-		@bprice = 2000
+		@price = Price.find(1)
 		if @stime == "18:00" || @stime == "19:00" || @stime == "20:00" || @stime == "21:00"
-			@nprice = 800
+			@night_price = @price.night_price
 		else
-			@nprice = 0
+			@night_price = 0
 		end
-		@tprice = @bprice + @nprice
+		@tprice = @price.basic_price + @night_price
 
 		# 重複予約対策
 		if Reservation.find_by(day: @day, start_time: @stime, tennis_court_id: @court)

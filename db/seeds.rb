@@ -10,3 +10,5 @@ Admin.create(email: ENV['MY_MAIL'], password: ENV['LOGIN'])
 TennisCourt.create(cname: 'Aコート', ctype: 'ハードコート')
 
 TennisCourt.create(cname: 'Bコート', ctype: 'ハードコート')
+
+Price.create
