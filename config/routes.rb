@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         resources :statistics, only:[:index]
         resources :prices, only:[:index, :update]
         resources :settings, only:[:index]
+        resources :informations, only:[:index, :show, :update, :destroy]
     end
 
 #---------------------------------------------------
