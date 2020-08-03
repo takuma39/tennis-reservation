@@ -29,6 +29,13 @@ class Admins::InformationsController < ApplicationController
 	end
 
 	def update
+		@information = Information.find(params[:id])
+		if @information.update(information_params)
+		   flash[:notice] = "更新完了"
+			redirect_to admins_information_path(@information.id)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
