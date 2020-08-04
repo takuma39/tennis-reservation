@@ -24,7 +24,7 @@ class Admins::InformationsController < ApplicationController
 		   flash[:notice] = "投稿完了"
 		   redirect_to admins_information_path(@information.id)
 		else
-  		   render 'new'
+  		   redirect_to request.referer
   		end
 	end
 
@@ -34,11 +34,19 @@ class Admins::InformationsController < ApplicationController
 		   flash[:notice] = "更新完了"
 			redirect_to admins_information_path(@information.id)
 		else
-			render 'edit'
+			redirect_to request.referer
 		end
 	end
 
 	def destroy
+		@information = Information.find(params[:id])
+		if @information.destroy
+		   flash[:notice] = "削除完了"
+		   redirect_to admins_informations_path
+		else
+			flash[:notice] = "削除失敗"
+			redirect_to request.referer
+		end
 	end
 
 	def information_params
