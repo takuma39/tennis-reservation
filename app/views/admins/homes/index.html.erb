@@ -33,12 +33,33 @@
 </div><!-- --------------------------row------------------------- -->
 
 <div class="row"><!-- --------------------row-------------------- -->
+    <%= link_to admins_informations_path do %>
+        <h2>INFORMATION</h2>
+    <% end %>
 
-    <div class="col-md-6">
-    </div>
+    <table class="table table-inverse", style="margin-top:15px">
 
-    <div class="col-md-6">
-    </div>
+        <thead>
+            <tr class="active">
+                <th style="width:20%">投稿日</th>
+                <th style="width:80%">タイトル</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @informations.each do |i|%>
+            <tr>
+                <td><%= i.created_at.strftime("%Y年%-m月%-d日") %></td>
+                <td>
+                    <%= link_to admins_information_path(i.id) do %>
+                        <%= i.title %>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+
+    </table>
 
 </div><!-- --------------------------row------------------------- -->
 

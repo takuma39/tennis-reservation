@@ -70,6 +70,7 @@ Rails.application.routes.draw do
                 get :complete, as: :complete
             end
         end
+        resources :informations, only:[:index, :show]
     end
 
 #---------------------------------------------------

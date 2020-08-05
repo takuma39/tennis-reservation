@@ -1,0 +1,41 @@
+<div class="row"><!-- --------------------row-------------------- -->
+    <div class="col-md-5">
+        <h2><%= link_to "戻る", users_root_path, class: "btn btn-primary" %></h2>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Information一覧</h2>
+    </div>
+
+    <div class="col-md-1">
+    </div>
+</div><!-- --------------------------row------------------------- -->
+
+
+<div class="row"><!-- --------------------row-------------------- -->
+
+    <table class="table table-inverse", style="margin-top:15px">
+
+        <thead>
+            <tr class="active">
+                <th style="width:20%">投稿日</th>
+                <th style="width:70%">タイトル</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @informations.each do |i|%>
+            <tr>
+                <td><%= i.created_at.strftime("%Y年%-m月%-d日") %></td>
+                <td>
+                    <%= link_to users_information_path(i.id) do %>
+                        <%= i.title %>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+
+    </table>
+
+</div><!-- --------------------------row------------------------- -->

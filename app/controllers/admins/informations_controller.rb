@@ -22,7 +22,7 @@ class Admins::InformationsController < ApplicationController
 		@information = Information.new(information_params)
 		if @information.save
 		   flash[:notice] = "投稿完了"
-		   redirect_to admins_information_path(@information.id)
+		   redirect_to admins_informations_path
 		else
   		   redirect_to request.referer
   		end
