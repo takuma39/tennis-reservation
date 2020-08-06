@@ -3,7 +3,7 @@ class Users::InformationsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@informations = Information.all
+		@informations = Information.all.page(params[:page]).per(10)
 	end
 
 	def show

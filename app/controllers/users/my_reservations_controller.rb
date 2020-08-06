@@ -4,7 +4,7 @@ class Users::MyReservationsController < ApplicationController
 
 	def index
 		@user = User.find(params[:id])
-		@reservations = Reservation.where(user_id: @user.id, status: "入金待ち")
+		@reservations = Reservation.where(user_id: @user.id, status: "入金待ち").page(params[:page]).per(10)
 	end
 
 	def show
