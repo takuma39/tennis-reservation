@@ -7,7 +7,7 @@ class Admins::InformationsController < ApplicationController
 	end
 
 	def index
-		@informations = Information.all
+		@informations = Information.all.page(params[:page]).per(10)
 	end
 
 	def show
