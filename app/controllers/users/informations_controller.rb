@@ -1,9 +1,8 @@
 class Users::InformationsController < ApplicationController
 	layout 'users'
-	before_action :authenticate_user!
 
 	def index
-		@informations = Information.all.page(params[:page]).per(10)
+		@informations = Information.all.page(params[:page]).per(10).order(created_at: :desc)
 	end
 
 	def show
