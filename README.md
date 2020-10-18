@@ -16,7 +16,6 @@
 ### 主な利用シーン
 テニスコートの予約 / テニスコートの予約管理
 
-## 設計書
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/19Qyk3y5ETqGNL0R_VQIG1LcXmwgQlh6LB_ZrYdgpMVI/edit?usp=sharing
