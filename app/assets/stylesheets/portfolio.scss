@@ -1,3 +1,31 @@
 // Place all the styles related to the portfolio controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.heading {
+	text-align: center;
+}
+
+.heading h1 {
+	font-size: 60px;
+}
+
+.section {
+	padding-left: 40px;
+	border-bottom: solid 3px black;
+}
+
+.section h2 {
+	font-size: 40px;
+}
+
+.section_content {
+	padding-left: 40px;
+	font-size: 20px;
+}
+
+.page {
+	text-align: center;
+}
