@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
 #---------------------------------------------------
 
+    root 'portfolio#index'
+
     namespace :admins do
         root 'homes#top'
         resources :homes, only:[:index]
