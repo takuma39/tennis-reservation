@@ -156,7 +156,7 @@ $(function () {
 
 
 $(function() {
-    $('.a').slick({
+    $('.slider').slick({
         dots: true,
     });
 });
