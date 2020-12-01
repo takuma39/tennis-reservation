@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: ENV['MY_MAIL'], password: ENV['LOGIN'])
 
-Admin.create(email: ENV['MY_MAIL2'], password: ENV['LOGIN2'])
+Admin.create(email: 'test@test', password: 'aaaaaa')
 
 TennisCourt.create(cname: 'Aコート', ctype: 'ハードコート')
 
